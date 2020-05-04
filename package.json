@@ -1,0 +1,25 @@
+{
+  "name": "MERN-I",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd backend && nodemon index.js \" \"cd frontend && npm start\"  ",
+    "postinstall": "concurrently \"cd backend && npm install \" \"cd frontend && npm install\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeeksHubsAcademy/login-mern.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeeksHubsAcademy/login-mern/issues"
+  },
+  "homepage": "https://github.com/GeeksHubsAcademy/login-mern#readme",
+  "dependencies": {
+    "antd": "^4.2.0",
+    "concurrently": "^5.2.0"
+  }
+}

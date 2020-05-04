@@ -1,0 +1,17 @@
+@import '../../../colors.scss';
+
+.profileContainer {
+    height: 90.5vh;
+    background-image: url('https://as2.ftcdn.net/jpg/02/69/01/49/500_F_269014986_gSUMMnmr5H7euHe09qeBKIQQwwjq3u8Z.jpg');
+    background-position-x: right;
+    background-position-y: 35em;
+    background-repeat: no-repeat;
+}
+
+Button {
+        margin-top: 3em;
+        width: 20em !important;
+            background-color: $Solid !important;
+            width: 50%;
+}
+

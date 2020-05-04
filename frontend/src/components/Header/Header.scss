@@ -1,0 +1,29 @@
+@import '../../colors.scss';
+.header {
+    height: 5em;
+    color: $Dark;
+    padding: 0 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    a {
+        all: unset;
+        cursor: pointer;
+        padding: 3em;
+        &:hover {
+            color: $gray;
+        }
+    }
+    .isActive {
+        text-decoration: underline;
+        color: $Solid;
+    }
+    .userZone {
+        padding: 1em;
+    }
+}
+
+.ant-menu-item,
+.ant-menu-submenu-title {
+    color: $Dark !important;
+}

@@ -1,0 +1,31 @@
+@import '../../../colors.scss';
+
+.postCatContainer{
+    height: 90.5vh;
+    background-image: url('https://i.pinimg.com/564x/ad/5f/bb/ad5fbb4db895d744c74f992d1a3d3e9e.jpg');
+    background-position-x: right;
+    background-position-y: 5em;
+    background-repeat: no-repeat;
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        min-height: 40vh;
+        align-items: center;
+        input{
+            
+        min-width: 35vw;
+        }
+        button{
+            margin-top: 3em;
+            background-color: $Solid;
+            width: 50%;
+        }
+      
+    }
+}
