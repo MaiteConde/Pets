@@ -1,6 +1,7 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import {  notification } from 'antd';
 import './Register.scss';
 
 import { register } from '../../../redux/actions/users';
@@ -15,7 +16,7 @@ const Register = props => {
         register(user).then(res => {
             
             setTimeout(() => {
-                //this.router.navigate([])
+                notification.success({message:'Register complete'})
                 props.history.push('/login')
             }, 1500);
         })

@@ -3,9 +3,10 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const CatSchema = new mongoose.Schema({
     name: String,
     breed: String,
-    Age: String,
-    History: String,
+    age: String,
+    history: String,
     image_path: String,
+    adopted: Boolean,
     user: {
         type: ObjectId,
         ref: 'User'

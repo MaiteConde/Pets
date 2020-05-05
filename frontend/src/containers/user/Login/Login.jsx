@@ -16,7 +16,7 @@ const Login = props => {
           
             setTimeout(() => {
                 props.history.push('/profile');
-            }, 2000);
+            }, 1000);
         })
         .catch(()=>{
            

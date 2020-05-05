@@ -1,12 +1,16 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useLocation } from 'react-router-dom'
 import {  notification } from 'antd';
-import { postDog } from '../../../redux/actions/dogs';
-import './PostDog.scss' 
+import { editCat } from '../../../redux/actions/cats';
+import './PostCat.scss' 
 
 
-const Post = props => {
+const Put = props => {
+    let location = useLocation();
+    const id = location.pathname.replace('/editCat/','')
+    console.log(id)
     const handle = event => {
         event.preventDefault();
         const formData = new FormData();
@@ -16,9 +20,9 @@ const Post = props => {
         if (event.target.age.value) formData.set('age', event.target.age.value)
         if (event.target.history.value) formData.set('history', event.target.history.value)
 
-        postDog(formData)
-        .then(dog => {
-            notification.success({message:'Thank you! We hope your dog find a family soon'})
+        editCat(formData, id)
+        .then(cat => {
+            notification.success({message:'Edited'})
             setTimeout(() => {
                 props.history.push('/profile')
             }, 2000);
@@ -30,7 +34,7 @@ const Post = props => {
     return (
         <div className="postDogContainer">
             <form onSubmit={handle}>
-                <h2>Dog</h2>
+                <h2>Edit</h2>
                 <TextField type="text" label="name" name="name" placeholder="dogs name" />
                 <TextField type="text" label="breed" name="breed" placeholder="dogs breed" />
                 <TextField type="text" label="age" name="age" placeholder="dogs age" />
@@ -45,4 +49,4 @@ const Post = props => {
     )
 }
 
-export default Post
+export default Put

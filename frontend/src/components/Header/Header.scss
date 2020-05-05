@@ -13,6 +13,11 @@
         &:hover {
             color: $gray;
         }
+
+    }
+    span {
+        cursor: pointer;
+
     }
     .isActive {
         text-decoration: underline;

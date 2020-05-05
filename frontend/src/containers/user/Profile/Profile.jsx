@@ -14,6 +14,9 @@ const Profile = ({ user, cats, dogs }) => {
         getCatsUser()
         getDogsUser()
     }, [])
+
+    const image = `http://localhost:3000/images/dogs/${user?.image_path}`;
+
     return (
         <div className="profileContainer">
 
@@ -22,15 +25,14 @@ const Profile = ({ user, cats, dogs }) => {
 
 
                 <div className="userData">
+                <img src= {image}  alt=""/>
+
                     <span>{user.name}</span>
                    
                 </div>
 
                 
-                <div className="userCats">
-                    <span>{cats.name}</span>
-                   
-                </div>
+              
                 <h2>Cats</h2>
                 <div>
 
@@ -50,9 +52,6 @@ const Profile = ({ user, cats, dogs }) => {
                 
                         </div>
                 })}
-
-                </div>
-
                 <NavLink to='/postDog' activeClassName="isActive" exact>    <Button variant="contained" color="primary"  >
                 I have a dog that need a family
                 </Button></NavLink>
@@ -60,6 +59,9 @@ const Profile = ({ user, cats, dogs }) => {
                 <NavLink to='/postCat' activeClassName="isActive" exact>    <Button variant="contained" color="primary"  >
                 I have a cat that need a family
                 </Button></NavLink>
+
+                </div>
+
 
 
                 </div>
@@ -70,7 +72,7 @@ const Profile = ({ user, cats, dogs }) => {
         </div>
     )
 }
-const mapStateToProps = ({user, cat, dog}) => ({ user: user.user, cats:cat.cats.cats, dogs:dog.dogs.dogs});
+const mapStateToProps = ({user, cat, dog}) => ({ user: user.user, cats:cat.cats?.cats, dogs:dog.dogs?.dogs});
 
 export default connect(mapStateToProps)(Profile);
 

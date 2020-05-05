@@ -31,6 +31,7 @@ export const logout = async() => {
     store.dispatch({
         type: 'LOGOUT'
     })
+    
     return res;
 }
 

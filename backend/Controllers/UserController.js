@@ -7,6 +7,8 @@ const {
 const UserController = {
     async register(req, res) {
         try {
+        req.body.role = "user"
+        req.body.image_path = "1588635413114-76064e6390471f5ff4e005789c17cfb7.jpg"
             req.body.password = await bcrypt.hash(req.body.password, 9)
             const user = await User.create(req.body);
             res.status(201).send({
@@ -93,7 +95,30 @@ const UserController = {
                     message: 'Hubo un problema al intentar conectar al usuario'
                 })
             })
-    }
+    },
+
+    update(req, res) { //new es para que devuelva el registro actualizado, por defecto es false por lo que la promesa se resuelve con el registro sin actualizar
+        if (req.file) req.body.image_path = req.file.filename;
+        User.findByIdAndUpdate(req.user._id, req.body, { new: true }) // mongoose method which uses the findOneAndUpdate()
+            // Publication.findOneAndUpdate({_id:req.params._id} ) // Mongodb method
+            .then(user => res.send({ message: 'profile successfully updated', user }))
+            .catch(console.error)
+    },
+    
+    async delete(req, res) {
+        
+        try {
+            const _id = req.params._id
+            await User.findByIdAndDelete(_id) // mongoose method which uses the findOneAndDelete()
+            res.send({ message: 'user deleted' })
+        
+        } catch (error) {
+            console.error(error)
+            res.status(500).send({ message: 'there was a problem trying to remove the user' })
+        }
+    
+    
+    },
 }
 
 module.exports = UserController;

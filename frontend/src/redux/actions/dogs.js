@@ -3,6 +3,8 @@ import axios from 'axios';
 import { API_URL } from '../../api-config';
 
 
+
+
 export const getAllDogs = async() => {
     try {
         const res = await axios.get(API_URL + 'dogs');
@@ -58,5 +60,16 @@ export const postDog = async (formData) => {
             console.error(error)
         }
     }
+
+    export const editDog = async (formData,id) => {
+   
+        await axios.put(API_URL + `dogs/put/${id}`, formData, {
+              headers: {
+                  Authorization: localStorage.getItem('authToken')
+              }
+          }) 
+        return formData;
+       
+          }
   
 

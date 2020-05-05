@@ -58,3 +58,14 @@ export const postCat = async (formData) => {
             console.error(error)
         }
     }
+
+    export const editCat = async (formData,id) => {
+   
+        await axios.put(API_URL + `cats/put/${id}`, formData, {
+              headers: {
+                  Authorization: localStorage.getItem('authToken')
+              }
+          }) 
+        return formData;
+       
+          }

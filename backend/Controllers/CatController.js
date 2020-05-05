@@ -14,7 +14,8 @@ const CatController = {
 
     Cat.create({
             ...req.body,
-            user: req.user._id
+            user: req.user._id,
+            adopted: false
         })
         .then(cat => res.status(201).send(cat))
         .catch(error => {
@@ -36,6 +37,29 @@ getCatById(req, res) {
         .catch(console.error)
 },
 
+update(req, res) { 
+    if (req.file) req.body.image_path = req.file.filename;
+    if(req.user._id == req.body.user);
+    // console.log('holi')
+    Cat.findByIdAndUpdate(req.params._id, req.body, { new: true }) 
+        .then(cat => res.send({ message: 'publication successfully updated', cat }))
+        .catch(console.error)
+},
+
+async delete(req, res) {
+    
+    try {
+        const _id = req.params._id
+        await Cat.findByIdAndDelete(_id) // mongoose method which uses the findOneAndDelete()
+        res.send({ message: 'publication deleted' })
+    
+    } catch (error) {
+        console.error(error)
+        res.status(500).send({ message: 'there was a problem trying to remove the publication' })
+    }
+
+
+},
 
 }
 module.exports = CatController;
