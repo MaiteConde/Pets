@@ -9,6 +9,7 @@ import Dog from './containers/pets/dogs/Dog'
 import Cats from './containers/pets/cats/Cats'
 import Cat from './containers/pets/cats/Cat'
 import PostDog from './containers/pets/dogs/PostDog'
+import Adoptions from './containers/pets/adoptions'
 import EditDog from './containers/pets/dogs/editDog'
 import EditCat from './containers/pets/cats/EditCat'
 import PostCat from './containers/pets/cats/PostCat'
@@ -38,6 +39,8 @@ function App() {
           <Route path='/editDog/:id' component={EditDog} />
           <Route path='/editCat/:id' component={EditCat} />
           <Route path='/postCat' component={PostCat} />
+          <Route path='/adoptions' component={Adoptions} />
+
 
 
 

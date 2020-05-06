@@ -47,3 +47,13 @@ export const getInfo = async () => {
     })
 return res;
 }
+
+export const editProfile = async (formData, id) => {
+    await axios.put(API_URL + `users/put`, formData, {
+          headers: {
+              Authorization: localStorage.getItem('authToken')
+          }
+      }) 
+    return getInfo();
+   
+      }
