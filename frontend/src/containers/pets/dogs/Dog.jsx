@@ -21,6 +21,8 @@ const Dog = ({ dog, user }) => {
 <div className="dogData">
      
                     <span>{dog?.name}</span>
+                    < NavLink to= {`/user/${dog?.user?._id}`} activeClassName="isActive" exact>{dog?.user.name}</NavLink>
+
                     <img src= {image}  alt=""/>
                   
                     {dog?.user === user?._id && user.role === 'admin'?

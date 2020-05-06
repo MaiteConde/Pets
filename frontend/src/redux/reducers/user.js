@@ -3,6 +3,7 @@ const userReducer = (state = {}, action) => {
         case 'LOGIN':
         case 'LOGOUT':
         case 'GET_INFO':
+        case 'GET_INFO_ID':
             return {
                 ...state,
                 user: action.user

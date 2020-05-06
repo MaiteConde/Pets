@@ -25,9 +25,9 @@ export const postCat = async (formData) => {
    
       }
 
-      export const getCatsUser = async() => {
+      export const getCatsUser = async(id) => {
         try {
-            const res = await axios.get(API_URL + 'cats/cat', {
+            const res = await axios.get(API_URL + `cats/cats/${id}`, {
                 headers: {
                     Authorization: localStorage.getItem('authToken')
                 }

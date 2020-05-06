@@ -10,8 +10,9 @@ import { getDogsUser } from '../../redux/actions/dogs';
 
 const Adoptions = ({ user, cats, dogs }) => {
     useEffect(() => {
-        getCatsUser()
-        getDogsUser()
+        const id= [user._id]
+        getCatsUser(id)
+        getDogsUser(id)
     }, [])
 
 
@@ -69,6 +70,6 @@ const Adoptions = ({ user, cats, dogs }) => {
         </div>
     )
 }
-const mapStateToProps = ({user, cat, dog}) => ({ user: user.user, cats:cat.cats?.cats, dogs:dog.dogs?.dogs});
+const mapStateToProps = ({user, cat, dog}) => ({ user: user?.user, cats:cat.cats?.cats, dogs:dog.dogs?.dogs});
 
 export default connect(mapStateToProps)(Adoptions);

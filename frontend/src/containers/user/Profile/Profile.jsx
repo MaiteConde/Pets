@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import {editProfile} from '../../../redux/actions/users'
+import {editProfile, getInfo} from '../../../redux/actions/users'
 import TextField from '@material-ui/core/TextField';
 import {  notification } from 'antd';
 import { connect } from 'react-redux'
@@ -13,6 +13,7 @@ const { Meta } = Card;
 
 
 const Put = ({user}) => {
+    getInfo()
     const id = user._id
     console.log(id)
     const handle = event => {

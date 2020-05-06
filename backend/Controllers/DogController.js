@@ -25,7 +25,7 @@ const DogController = {
 },
 
 getDogByUser(req, res) {
-    Dog.find({user: req.user})
+    Dog.find({user: req.params.id})
   
         .then(dogs => res.send({ dogs }))
         .catch(console.error)
@@ -34,7 +34,8 @@ getDogByUser(req, res) {
 
 getDogById(req, res) {
     Dog.find({_id: req.params.id})
- 
+    .populate('user')
+
         .then(dog => res.send({dog}))
         .catch(console.error)
 },

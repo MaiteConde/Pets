@@ -104,6 +104,13 @@ const UserController = {
             .then(user => res.send({ message: 'profile successfully updated', user }))
             .catch(console.error)
     },
+
+    getInfoId(req, res) {
+        User.find({_id: req.params._id})
+            .then(users => res.send(users))
+            .catch(console.error)
+
+    },
     
     async delete(req, res) {
         

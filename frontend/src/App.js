@@ -14,11 +14,13 @@ import EditDog from './containers/pets/dogs/editDog'
 import EditCat from './containers/pets/cats/EditCat'
 import PostCat from './containers/pets/cats/PostCat'
 import Profile from './containers/user/Profile/Profile'
+import UserProfile from './containers/user/usersProfile/userProfile'
 import Home from './containers/Home/Home'
 
 
 import { Button } from '@material-ui/core';
 import { editCat } from './redux/actions/cats';
+import userProfile from './containers/user/usersProfile/userProfile';
 
 function App() {
 
@@ -35,6 +37,7 @@ function App() {
           <Route path='/cat/:id' component={Cat} />
           <Route path='/dog/:id' component={Dog} />
           <Route path='/profile' component={Profile} />
+          <Route path='/user/:id' component={UserProfile} />
           <Route path='/postDog' component={PostDog} />
           <Route path='/editDog/:id' component={EditDog} />
           <Route path='/editCat/:id' component={EditCat} />

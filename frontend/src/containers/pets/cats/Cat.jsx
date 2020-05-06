@@ -20,10 +20,13 @@ const Cat = ({ cat, user}) => {
 <div className="catData">
      
                     <span>{cat?.name}</span>
+                    < NavLink to= {`/user/${cat?.user?._id}`} activeClassName="isActive" exact>{cat?.user.name}</NavLink>
+                    
+    
                     <img src= {image}  alt=""/>
                    
                    {cat?.user === user?._id ?
-                    < NavLink to= {`/editCat/${cat._id}`} activeClassName="isActive" exact><button>Edit</button></NavLink>
+                    < NavLink to= {`/editCat/${cat?._id}`} activeClassName="isActive" exact><button>Edit</button></NavLink>
                     : <div></div>
                 }
 
