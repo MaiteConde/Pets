@@ -25,9 +25,9 @@ export const postCat = async (formData) => {
    
       }
 
-      export const getCatsUser = async() => {
+      export const getCatsUser = async(id) => {
         try {
-            const res = await axios.get(API_URL + 'cats/cat', {
+            const res = await axios.get(API_URL + `cats/cats/${id}`, {
                 headers: {
                     Authorization: localStorage.getItem('authToken')
                 }
@@ -54,9 +54,12 @@ export const postCat = async (formData) => {
                 type: 'GET_CAT_ID',
                 payload: res.data
             })
+       
+
         } catch (error) {
             console.error(error)
         }
+     
     }
 
     export const editCat = async (formData,id) => {
@@ -69,3 +72,20 @@ export const postCat = async (formData) => {
         return formData;
        
           }
+
+          export const deleteCat = async (id) => {
+            await axios.delete(API_URL + `cats/delete/${id}`,{
+                  headers: {
+                      Authorization: localStorage.getItem('authToken')
+                  }
+                  
+              }) 
+            
+              }
+
+          export const clearData = () => {
+            store.dispatch({
+                type: 'CLEAR'
+              
+            })
+          };

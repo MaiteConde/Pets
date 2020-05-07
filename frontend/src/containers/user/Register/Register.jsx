@@ -10,6 +10,7 @@ const Register = props => {
         event.preventDefault();
         const user ={
             name:event.target.name.value,
+            surname:event.target.surname.value,
             email:event.target.email.value,
             password:event.target.password.value
         }
@@ -28,9 +29,10 @@ const Register = props => {
         <div className="registerContainer">
             <form onSubmit={handleSubmit}>
                 <h2>Register</h2>
-                <TextField type="text" label="Nombre" name="name" placeholder="Introduzca su nombre" />
-                <TextField type="email" label="email" name="email" placeholder="Introduzca su correo electrónico" />
-                <TextField type="password" label="contraseña" name="password" placeholder="Introduzca su contraseña" />
+                <TextField type="text" label="Name" name="name"/>
+                <TextField type="text" label="Surname" name="surname"/>
+                <TextField type="email" label="Email" name="email"/>
+                <TextField type="password" label="Password" name="password" />
                 <Button type="submit" variant="contained" color="primary">
                     Register
                 </Button>

@@ -5,7 +5,7 @@ import './Header.scss';
 import { logout } from '../../redux/actions/users';
 import 'antd/dist/antd.css';
 import { Menu } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+// import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 

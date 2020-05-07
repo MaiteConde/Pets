@@ -28,9 +28,9 @@ export const postDog = async (formData) => {
  
     }
 
-    export const getDogsUser = async() => {
+    export const getDogsUser = async(id) => {
         try {
-            const res = await axios.get(API_URL + 'dogs/dog', {
+            const res = await axios.get(API_URL + `dogs/dogs/${id}`, {
                 headers: {
                     Authorization: localStorage.getItem('authToken')
                 }
@@ -71,5 +71,20 @@ export const postDog = async (formData) => {
         return formData;
        
           }
-  
 
+          export const deleteDog = async (id) => {
+            await axios.delete(API_URL + `dogs/delete/${id}`,{
+                  headers: {
+                      Authorization: localStorage.getItem('authToken')
+                  }
+                  
+              }) 
+            
+              }
+  
+          export const clearData = () => {
+            store.dispatch({
+                type: 'CLEAR'
+              
+            })
+          };

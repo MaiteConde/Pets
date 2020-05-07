@@ -11,6 +11,11 @@ const dogReducer = (state = {}, action) => {
                         ...state,
                         dog: action.payload
                     }
+            case 'CLEAR':
+                return{
+                    state: undefined
+                        }
+    
         default:
             return state;
     }

@@ -1,81 +1,80 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { getInfo } from '../../../redux/actions/users'
+import {editProfile, getInfo} from '../../../redux/actions/users'
+import TextField from '@material-ui/core/TextField';
+import {  notification } from 'antd';
 import { connect } from 'react-redux'
 import './Profile.scss';
-import { getCatsUser } from '../../../redux/actions/cats';
-import { getDogsUser } from '../../../redux/actions/dogs';
+import { Card, Avatar } from 'antd';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+
+const { Meta } = Card;
 
 
-const Profile = ({ user, cats, dogs }) => {
+const Put = ({user}) => {
     useEffect(() => {
         getInfo()
-        getCatsUser()
-        getDogsUser()
+       
     }, [])
+        const id = user?._id
+    console.log(id)
+    const handle = event => {
+        event.preventDefault();
+        const formData = new FormData();
+        if (event.target.image.files[0]) formData.set('image', event.target.image.files[0]);
+        if (event.target.name.value) formData.set('name', event.target.name.value)
+        if (event.target.surname.value) formData.set('surname', event.target.surname.value)
+        if (event.target.userInfo.value) formData.set('userInfo', event.target.userInfo.value)
+        // if (event.target.history.value) formData.set('history', event.target.history.value)
 
+        editProfile(formData, id)
+        .then(cat => {
+            notification.success({message:'Edited'})
+         
+        })
+        .catch((error)=>{
+           console.error(error)
+        })
+    }
     const image = `http://localhost:3000/images/dogs/${user?.image_path}`;
 
     return (
         <div className="profileContainer">
+           
+            <Card title="Public info" bordered={false} style={{ width: 900 }}>
 
-            {user && <React.Fragment>
-                <div className="userHeader">
-
-
-                <div className="userData">
-                <img src= {image}  alt=""/>
-
-                    <span>{user.name}</span>
-                   
-                </div>
-
-                
-              
-                <h2>Cats</h2>
-                <div>
-
-                { cats?.map(function(cato) {
-                    return <div className="cat" key={cato._id}>
-                    <p>{cato.name}</p>
-                        </div>
-                })}
-
-                </div>
-                <h2>Dogs</h2>
-                <div>
-
-                { dogs?.map(function(dogo) {
-                    return <div className="dog" key={dogo._id}>
-                    <p>{dogo.name}</p>
-                
-                        </div>
-                })}
-                <NavLink to='/postDog' activeClassName="isActive" exact>    <Button variant="contained" color="primary"  >
-                I have a dog that need a family
-                </Button></NavLink>
-
-                <NavLink to='/postCat' activeClassName="isActive" exact>    <Button variant="contained" color="primary"  >
-                I have a cat that need a family
-                </Button></NavLink>
-
-                </div>
+               
+            <form onSubmit={handle}>
+                <p>Here you can change your info</p> <p>< NavLink to= {'/adoptions'} activeClassName="isActive" exact>My adoption publications</NavLink>
+</p>
 
 
+                <div class="image-upload">
+  <label htmlFor="file-input">
+    <img src={image} />
+  </label>
 
-                </div>
+  <input id="file-input" name ="image" type="file" />
+</div>
 
 
+             <h4>Name:</h4> <TextField type="text" label={user?.name} name="name"  />
+             <h4>Surname:</h4> <TextField type="text" label={user?.surname}  name="surname"  />
+             <h4>Info:</h4> <TextField type="text" label={user?.userInfo}  name="userInfo" />
             
-            </React.Fragment>}
+               
+
+                <Button type="submit" variant="contained" color="primary">
+                    Edit
+                </Button>
+            </form>
+    </Card>
+
+   
         </div>
     )
 }
-const mapStateToProps = ({user, cat, dog}) => ({ user: user.user, cats:cat.cats?.cats, dogs:dog.dogs?.dogs});
 
-export default connect(mapStateToProps)(Profile);
-
-
-// const mapStateToProps = ({cat}) => ({cats:cat.cats.cats});
-// export default connect(mapStateToProps)(Profile);
+const mapStateToProps = ({user}) =>({user: user.user});
+export default connect(mapStateToProps)  (Put);

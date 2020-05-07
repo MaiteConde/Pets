@@ -47,3 +47,33 @@ export const getInfo = async () => {
     })
 return res;
 }
+
+export const getInfoId = async (id) => {
+    const res = await axios.get(API_URL + `users/user/${id}`, {
+        headers: {
+            Authorization: localStorage.getItem('authToken')
+        }
+    }) 
+    store.dispatch({
+        type: 'GET_INFO_ID',
+        user:res.data
+    })
+return res;
+}
+
+export const editProfile = async (formData, id) => {
+    await axios.put(API_URL + `users/put`, formData, {
+          headers: {
+              Authorization: localStorage.getItem('authToken')
+          }
+      }) 
+    return getInfo();
+   
+      }
+
+      export const clearData = () => {
+        store.dispatch({
+            type: 'CLEAR'
+          
+        })
+      };

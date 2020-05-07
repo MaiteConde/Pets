@@ -1,4 +1,4 @@
-const dogReducer = (state = {}, action) => {
+const catReducer = (state = {}, action) => {
     switch (action.type) {
         case 'GET_ALL_CATS':
         case 'GET_CATS_USER':
@@ -11,9 +11,13 @@ const dogReducer = (state = {}, action) => {
                     ...state,
                     cat: action.payload
                 }
-    
+                case 'CLEAR':
+                    return{
+                        state: undefined
+                    }
+
         default:
             return state;
     }
 };
-export default dogReducer;
+export default catReducer;

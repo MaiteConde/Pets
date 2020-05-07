@@ -7,6 +7,7 @@ const {isAdmin} = require('../middleware/authenticaction');
 
 
 router.get('/info',authentication, UserController.getInfo);
+router.get('/user/:_id', UserController.getInfoId);
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);
 router.get('/logout', authentication, UserController.logout);

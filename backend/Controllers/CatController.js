@@ -24,15 +24,16 @@ const CatController = {
         })
 },
 getCatByUser(req, res) {
-    Cat.find({user: req.user})
-  
+    Cat.find({user: req.params.id})
+    
         .then(cats => res.send({ cats }))
         .catch(console.error)
 },
 
 getCatById(req, res) {
     Cat.find({_id: req.params.id})
- 
+    .populate('user')
+
         .then(cat => res.send({ cat}))
         .catch(console.error)
 },

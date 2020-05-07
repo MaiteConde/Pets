@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 const UserSchema = new mongoose.Schema({
     name: String,
+    surname: String,
+    userInfo: String,
     email: {
         type: String,
         unique: true,
@@ -11,7 +13,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-   
+    
     role: String,
 
     image_path:String,

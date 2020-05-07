@@ -1,3 +1,13 @@
 .cato {
+    
 margin: 2em
+}
+.cats {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+img {
+    height: 25em !important;
 }

@@ -7,6 +7,15 @@ const userReducer = (state = {}, action) => {
                 ...state,
                 user: action.user
             }
+            case 'GET_INFO_ID':
+                return {
+                    ...state,
+                    userId: action.user
+                }
+            case 'CLEAR':
+                return{
+                    state: undefined
+                        }
         default:
             return state;
     }
