@@ -20,7 +20,6 @@ import Home from './containers/Home/Home'
 
 import { Button } from '@material-ui/core';
 import { editCat } from './redux/actions/cats';
-import userProfile from './containers/user/usersProfile/userProfile';
 
 function App() {
 

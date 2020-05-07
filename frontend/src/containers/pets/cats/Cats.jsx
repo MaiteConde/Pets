@@ -4,7 +4,7 @@ import './Cats.scss'
 import { NavLink } from 'react-router-dom';
 import { Card } from 'antd';
 
-import { getAllCats } from '../../../redux/actions/cats';
+import { getAllCats, clearData } from '../../../redux/actions/cats';
 
 const Cats = props => {
     useEffect(() => {
@@ -23,11 +23,13 @@ const Cats = props => {
     hoverable
     style={{ width: 240 }}
     cover={<img alt="example" src={`http://localhost:3000/images/cats/${cato.image_path}`} />}
-  >
+    >
      <p>{cato.name}</p>
     <p>{cato.age}</p>
             
   </Card>
+  
+
   </NavLink>
   )
 

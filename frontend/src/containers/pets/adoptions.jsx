@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import { getCatsUser } from '../../redux/actions/cats';
 import { getDogsUser } from '../../redux/actions/dogs';
+import { getInfo } from '../../redux/actions/users';
 
 
 

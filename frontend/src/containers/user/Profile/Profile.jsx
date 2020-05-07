@@ -13,8 +13,11 @@ const { Meta } = Card;
 
 
 const Put = ({user}) => {
-    getInfo()
-    const id = user._id
+    useEffect(() => {
+        getInfo()
+       
+    }, [])
+        const id = user?._id
     console.log(id)
     const handle = event => {
         event.preventDefault();
@@ -56,9 +59,9 @@ const Put = ({user}) => {
 </div>
 
 
-             <h4>Name:</h4> <TextField type="text" label={user.name} name="name"  />
-             <h4>Surname:</h4> <TextField type="text" label={user.surname}  name="surname"  />
-             <h4>Info:</h4> <TextField type="text" label={user.userInfo}  name="userInfo" />
+             <h4>Name:</h4> <TextField type="text" label={user?.name} name="name"  />
+             <h4>Surname:</h4> <TextField type="text" label={user?.surname}  name="surname"  />
+             <h4>Info:</h4> <TextField type="text" label={user?.userInfo}  name="userInfo" />
             
                
 

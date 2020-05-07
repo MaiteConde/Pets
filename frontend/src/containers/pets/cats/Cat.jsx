@@ -1,20 +1,27 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom'
-import { getCatId } from '../../../redux/actions/cats';
+import { getCatId, clearData, deleteCat } from '../../../redux/actions/cats';
 import { NavLink } from 'react-router-dom';
+import {useHistory} from 'react-router-dom'
+import { getInfo } from '../../../redux/actions/users';
+
 
 
 
 const Cat = ({ cat, user}) => {
     let location = useLocation();
-    const id = location.pathname.replace('/cat','')
+    const id = location.pathname.replace('/cat/','')
     useEffect(() => {
         getCatId(id)
-         console.log(id)
+        return () => {clearData(); getInfo()}
+        
     }, [])
-
+  
     const image = `http://localhost:3000/images/cats/${cat?.image_path}`;
+    const history = useHistory();
+    if(!cat) return 'cargando'
+
     return (
         <div> 
 <div className="catData">
@@ -24,13 +31,19 @@ const Cat = ({ cat, user}) => {
                     
     
                     <img src= {image}  alt=""/>
-                   
-                   {cat?.user === user?._id ?
+
+
+                   {cat?.user._id === user?._id ?
                     < NavLink to= {`/editCat/${cat?._id}`} activeClassName="isActive" exact><button>Edit</button></NavLink>
                     : <div></div>
                 }
 
-                
+
+                    {cat?.user._id === user?._id || user?.role == 'admin' ?
+                    <button onClick={() => {deleteCat(id);  setTimeout(() => {
+                history.push('/cats')
+            }, 1000); }}>delete</button>:''
+        }
                 </div>
 
         </div>

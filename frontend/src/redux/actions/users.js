@@ -70,3 +70,10 @@ export const editProfile = async (formData, id) => {
     return getInfo();
    
       }
+
+      export const clearData = () => {
+        store.dispatch({
+            type: 'CLEAR'
+          
+        })
+      };
