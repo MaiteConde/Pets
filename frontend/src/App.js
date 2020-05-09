@@ -15,11 +15,15 @@ import EditCat from './containers/pets/cats/EditCat'
 import PostCat from './containers/pets/cats/PostCat'
 import Profile from './containers/user/Profile/Profile'
 import UserProfile from './containers/user/usersProfile/userProfile'
+import Valuation from './containers/user/Valuation/valuation'
 import Home from './containers/Home/Home'
+import NotFound from './containers/Notfound/Notfound';
+
 
 
 import { Button } from '@material-ui/core';
 import { editCat } from './redux/actions/cats';
+import valuation from './containers/user/Valuation/valuation';
 
 function App() {
 
@@ -42,6 +46,10 @@ function App() {
           <Route path='/editCat/:id' component={EditCat} />
           <Route path='/postCat' component={PostCat} />
           <Route path='/adoptions' component={Adoptions} />
+          <Route path='/valuation/:id' component={Valuation} />
+          <Route exact path='*' component={NotFound} />
+
+
 
 
 

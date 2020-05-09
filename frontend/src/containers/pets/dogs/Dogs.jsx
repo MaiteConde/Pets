@@ -11,7 +11,8 @@ const Dogs = props => {
         getAllDogs()
     }, [])
 
-    
+    if(!props.dogs) return <div class="loader"></div>
+
     return (
         <div className="dogos">
             <div className="cont"></div>

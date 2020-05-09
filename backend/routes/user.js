@@ -11,6 +11,9 @@ router.get('/user/:_id', UserController.getInfoId);
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);
 router.get('/logout', authentication, UserController.logout);
+router.put('/valuation/:_id', authentication, UserController.valu);
+router.put('/stars/:_id', authentication, UserController.stars);
+
 router.put('/put', authentication, uploadDogImages.single('image'), UserController.update);
 
 router.delete('/delete/:_id', authentication, isAdmin, UserController.delete);

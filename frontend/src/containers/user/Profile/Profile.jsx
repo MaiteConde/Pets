@@ -17,8 +17,9 @@ const Put = ({user}) => {
         getInfo()
        
     }, [])
+
         const id = user?._id
-    console.log(id)
+
     const handle = event => {
         event.preventDefault();
         const formData = new FormData();
@@ -38,6 +39,7 @@ const Put = ({user}) => {
         })
     }
     const image = `http://localhost:3000/images/dogs/${user?.image_path}`;
+    if(!user) return <div class="loader"></div>
 
     return (
         <div className="profileContainer">

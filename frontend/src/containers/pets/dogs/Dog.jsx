@@ -17,7 +17,7 @@ const Dog = ({ dog, user }) => {
 
     const image = `http://localhost:3000/images/dogs/${dog?.image_path}`;
     const history = useHistory();
-if(!dog) return 'cargando'
+if(!dog) return <div class="loader"></div>
     return (
 
         <div> 

@@ -13,7 +13,24 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    
+
+    valuations: [{
+        text: String,
+        user: {
+            type: ObjectId,
+            ref: 'User'
+        },
+    }],
+
+    stars: [{
+        value:Number,
+        avgQuantity: Number,
+        user: {
+            type: ObjectId,
+            ref: 'User'
+        },
+    }],
+
     role: String,
 
     image_path:String,

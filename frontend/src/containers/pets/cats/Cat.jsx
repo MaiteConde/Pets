@@ -5,8 +5,9 @@ import { getCatId, clearData, deleteCat } from '../../../redux/actions/cats';
 import { NavLink } from 'react-router-dom';
 import {useHistory} from 'react-router-dom'
 import { getInfo } from '../../../redux/actions/users';
-
-
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import './Cat.scss'
 
 
 const Cat = ({ cat, user}) => {
@@ -20,10 +21,38 @@ const Cat = ({ cat, user}) => {
   
     const image = `http://localhost:3000/images/cats/${cat?.image_path}`;
     const history = useHistory();
-    if(!cat) return 'cargando'
+    if(!cat) return <div class="loader"></div>
 
-    return (
-        <div> 
+
+    const menu = (
+       
+        
+        <Menu>
+          <Menu.Item key="0">
+          < NavLink to= {`/editCat/${cat?._id}`} activeClassName="isActive" exact>Edit</NavLink></Menu.Item>
+          <Menu.Item key="1">
+          <span onClick={() => {deleteCat(id);  setTimeout(() => {
+                history.push('/cats')
+            }, 1000); }}>Delete</span>
+          </Menu.Item>
+      
+      
+        </Menu>
+      )
+      
+
+      return (
+
+          <div> 
+          {cat?.user._id === user?._id || user?.role == 'admin' ?
+                <Dropdown overlay={menu} trigger={['click']}>
+                  <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                    Options <DownOutlined />
+                  </a>
+                </Dropdown>:''}
+            
+              
+            
 <div className="catData">
      
                     <span>{cat?.name}</span>
@@ -32,19 +61,19 @@ const Cat = ({ cat, user}) => {
     
                     <img src= {image}  alt=""/>
 
-
+{/* 
                    {cat?.user._id === user?._id ?
                     < NavLink to= {`/editCat/${cat?._id}`} activeClassName="isActive" exact><button>Edit</button></NavLink>
                     : <div></div>
-                }
+                } */}
 
 
-                    {cat?.user._id === user?._id || user?.role == 'admin' ?
-                    <button onClick={() => {deleteCat(id);  setTimeout(() => {
-                history.push('/cats')
-            }, 1000); }}>delete</button>:''
-        }
                 </div>
+
+
+
+
+                
 
         </div>
     )

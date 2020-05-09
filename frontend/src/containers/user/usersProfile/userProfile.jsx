@@ -2,12 +2,14 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
-import { getInfoId, getInfo, clearData } from '../../../redux/actions/users';
+import { getInfoId, getInfo, clearData, giveValuation } from '../../../redux/actions/users';
 import {getCatsUser } from '../../../redux/actions/cats';
 import './userProfile.scss'
+
 import { getDogsUser } from '../../../redux/actions/dogs';
 import { Card } from 'antd';
-
+import { Collapse } from 'antd';
+const { Panel } = Collapse;
 
 const User = ({ userId, cats, dogs}) => {
     let location = useLocation();
@@ -20,21 +22,48 @@ const User = ({ userId, cats, dogs}) => {
         // return () => {clearData()}
 
     }, [])
-    if(!userId) return 'cargando'
+    if(!userId) return  <div class="loader"></div>
+
 
     return (
         <div> 
           { 
      userId?.map(function(user) {
         const image = `http://localhost:3000/images/dogs/${user?.image_path}`;
+        
+const { Panel } = Collapse;
+
+function callback(key) {
+  console.log(key);
+}
+
          return ( 
 
     <div className="user" key={user._id}>
+    
         <img  className="profilePhoto" src={image} alt=""/>
     
      <p>{user.name}</p>
     <p>{user.email}</p>
+
+
+    <h2>Valuations:</h2>
+    
+        {user.valuations.map(valuation => {
+          return ( 
+
+            <Collapse defaultActiveKey={['1']} onChange={callback}>
+            <Panel header= {valuation?.user.name} key="1">
+              <p>{valuation.text}</p>
+            </Panel>
             
+          </Collapse>
+
+
+           
+            )
+         
+        })  }
   </div>
   )
 
@@ -82,14 +111,18 @@ const User = ({ userId, cats, dogs}) => {
                 
                   </NavLink>
                 })}
+                          
+                </div>
+                </div>
 
-                </div>
-                </div>
 
 
         </div>
     )
+    
 }
+
+
 const mapStateToProps = ({user, cat, dog}) => ({userId:user?.userId, cats:cat.cats?.cats, dogs:dog.dogs?.dogs});
 
 export default connect(mapStateToProps)  (User);

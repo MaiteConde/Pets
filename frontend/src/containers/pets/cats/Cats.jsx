@@ -10,6 +10,8 @@ const Cats = props => {
     useEffect(() => {
         getAllCats()
     }, [])
+    if(!props.cats) return <div class="loader"></div>
+
     return (
 
         <div className="cats">

@@ -71,6 +71,14 @@ export const editProfile = async (formData, id) => {
    
       }
 
+export const giveValuation = async(id, user) => {
+        return axios.put(API_URL + `users/valuation/${id}`, user,{
+            headers: {
+                Authorization: localStorage.getItem('authToken')
+            }
+        }) 
+    }
+
       export const clearData = () => {
         store.dispatch({
             type: 'CLEAR'
