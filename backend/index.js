@@ -4,6 +4,7 @@ const { MONGO_URI } = require('../backend/config/keys')
 const usersRouter = require('./routes/user')
 const dogsRouter = require('./routes/dogs')
 const catsRouter = require('./routes/cats')
+const messagesRouter = require('./routes/messages')
 
 
 
@@ -32,6 +33,7 @@ app.use(express.static('./public'));
 app.use('/users',usersRouter)
 app.use('/dogs',dogsRouter)
 app.use('/cats',catsRouter)
+app.use('/messages',messagesRouter)
 
 
 
