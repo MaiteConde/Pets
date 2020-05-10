@@ -5,7 +5,8 @@ const MessageSchema = new mongoose.Schema({
     message: {
         type: String,
     },
-
+    subject: String,
+    
     image_path: String,
 
     sender: {

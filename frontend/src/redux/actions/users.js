@@ -79,6 +79,13 @@ export const giveValuation = async(id, user) => {
         }) 
     }
 
+export const sendMessage = async(message, userId) => {
+        return axios.post(API_URL + `messages/${userId}`, message, {
+            headers: {
+            Authorization: localStorage.getItem('authToken')
+        }})
+    }
+
 
       export const clearData = () => {
         store.dispatch({

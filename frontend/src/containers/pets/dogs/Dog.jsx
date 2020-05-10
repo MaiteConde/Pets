@@ -8,6 +8,7 @@ import { getInfo } from '../../../redux/actions/users';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import './Dog.scss';
+import MessageDog from '../../user/Messages/SendMessageDog';
 
 
 
@@ -76,8 +77,7 @@ if(!dog) return <div class="loader"></div>
                 <p>If you are insterested in this pet, you can contact with the actual owner:</p>
                 <span> <h3>{dog?.user.name}</h3></span>
 
-
-                <button class="bubbly-button">Contact</button>
+                <MessageDog/>
                     </div>
    
                 </div>

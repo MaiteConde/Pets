@@ -8,6 +8,7 @@ import { getInfo } from '../../../redux/actions/users';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import './Cat.scss'
+import MessageCat from '../../user/Messages/SendMessage';
 
 
 const Cat = ({ cat, user}) => {
@@ -40,9 +41,7 @@ const Cat = ({ cat, user}) => {
       return (
 
           <div className = "full"> 
-    
-              
-            
+          
 <div className="catData">
 
     <div className="buttons">
@@ -86,8 +85,7 @@ const Cat = ({ cat, user}) => {
                 <p>If you are insterested in this pet, you can contact with the actual owner:</p>
                 <span> <h3>{cat?.user.name}</h3></span>
 
-
-                <button class="bubbly-button">Contact</button>
+                <MessageCat/>
                     </div>
    
                 </div>
@@ -95,6 +93,8 @@ const Cat = ({ cat, user}) => {
         </div>
     )
 }
+
+
 const mapStateToProps = ({cat, user}) => ({ cat:cat.cat?.cat[0], user:user.user});
 
 export default connect(mapStateToProps)  (Cat);
