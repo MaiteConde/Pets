@@ -7,6 +7,8 @@ const CatSchema = new mongoose.Schema({
     history: String,
     image_path: String,
     adopted: Boolean,
+    sex: String,
+    location: String,
     user: {
         type: ObjectId,
         ref: 'User'

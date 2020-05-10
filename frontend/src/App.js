@@ -17,6 +17,8 @@ import Profile from './containers/user/Profile/Profile'
 import UserProfile from './containers/user/usersProfile/userProfile'
 import Valuation from './containers/user/Valuation/valuation'
 import Home from './containers/Home/Home'
+import Geolocation from './containers/Geolocation/Geolocation'
+
 import NotFound from './containers/Notfound/Notfound';
 
 
@@ -24,13 +26,16 @@ import NotFound from './containers/Notfound/Notfound';
 import { Button } from '@material-ui/core';
 import { editCat } from './redux/actions/cats';
 import valuation from './containers/user/Valuation/valuation';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
   return (
     <div className="App">
       <BrowserRouter>
+      
         <Header  />
+      
         <Switch>
         <Route exact path='/' component={Home} />
           <Route path='/login' component={Login} />
@@ -47,15 +52,13 @@ function App() {
           <Route path='/postCat' component={PostCat} />
           <Route path='/adoptions' component={Adoptions} />
           <Route path='/valuation/:id' component={Valuation} />
+          <Route path='/geo' component={Geolocation} />
           <Route exact path='*' component={NotFound} />
-
-
-
-
-
-
+         
         </Switch>
+        <Footer/>
       </BrowserRouter>
+
       {/* <div className="title">
        <h1>ADOPT<br></br> DONT SHOP</h1> 
        <Button>KNOW MORE</Button>

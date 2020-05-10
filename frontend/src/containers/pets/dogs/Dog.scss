@@ -1,0 +1,82 @@
+
+.infoC {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: whitesmoke;
+    height: 15em;
+    width: 30em;
+    border-top: gainsboro 2px solid;
+    img {
+      height: 1em !important;
+    }
+    border-radius: 10%;
+  }  
+  
+  .dogData{
+    border-radius: 5%;
+    margin: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 50%;
+   
+  }
+  
+  .full {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .history {
+  width: 20em;
+  padding: 1em;
+  
+  }
+  .icon {
+    height: 1em !important;
+    
+  }
+  
+  .adopt {
+    
+    width: 25em;
+    padding: 3em;
+    background-color:whitesmoke;
+    border-radius: 5%;
+    margin: 3em;
+  }
+  
+  .contact {
+  display: flex;
+  align-items: center;
+  }
+  
+  .bubbly-button {
+  margin: 0.5em !important;
+  }
+  
+  .buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      cursor: pointer;
+      padding: 5em;
+      color: inherit;
+    }
+    a {
+      all: unset;
+    }
+    cursor: pointer;
+  }
+  .iconImage {
+    height: 1em !important;
+   }
+  
+   .buttons span {
+     padding: 0;
+   }
+  

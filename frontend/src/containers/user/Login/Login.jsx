@@ -28,7 +28,7 @@ const Login = props => {
                 <h2>Login</h2>
                 <TextField type="email" label="email" name="email" placeholder="Introduzca su correo electrónico" />
                 <TextField type="password" label="contraseña" name="password" placeholder="Introduzca su contraseña" />
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" class="bubbly-button" >
                     Login
                 </Button>
             </form>

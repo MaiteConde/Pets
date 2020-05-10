@@ -14,9 +14,8 @@ const Header = props => {
 
     return <header className="header" id= "header">
  
-        <NavLink to='/' activeClassName="isActive" exact>Home</NavLink>
-        <NavLink to='/dogs' activeClassName="isActive" exact>Dogs</NavLink>
-        <NavLink to='/cats' activeClassName="isActive" exact>Cats</NavLink>
+ <NavLink to='/' activeClassName="isActive" exact>Home</NavLink>
+
 
 
 

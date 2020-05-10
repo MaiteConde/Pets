@@ -1,7 +1,73 @@
-.container {
-    height: 90.5vh;
-    background-image: url('https://i.pinimg.com/564x/ad/5f/bb/ad5fbb4db895d744c74f992d1a3d3e9e.jpg');
-    background-position-x: right;
-    background-position-y: center;
+@import '../../colors.scss';
+
+// .container {
+//     height: 100%;
+   
+// }
+.headerDog {
+    border-top-left-radius: 8em;
+    border-top-right-radius: 8em;
+    display: flex;
+    align-items: center;
+  
+    height: 70vh;
+    background-image: url('https://wallpaperaccess.com/full/434959.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+   
+h1 {
+    color: white !important;
+    font-size: 4em;
 }
+.title {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+}
+
+}
+    .contents {
+        width: 50%;
+        height: 7em;
+        margin: 0 30em;
+        background-color:#F0F1FA !important;
+        ;
+        border-radius: 3em;
+        display: flex;
+        justify-content: center;
+      align-items: center;
+      box-shadow: -3px 56px 50px -33px rgba(150,132,150,1);
+      span {
+            padding: 4em;
+            color: black;
+            &:hover {
+                color: $Dark;
+                
+            }
+        }
+        img {
+            height: 2em !important;
+        };
+
+       
+    }
+    .petInfo {
+        display: flex;
+      justify-content: space-between;
+      text-align: left;
+     
+      h1{
+          color: $Dark
+      }
+      div {
+          margin: 5em;
+          span {
+            text-decoration-line: underline; 
+
+          }
+      }
+    }

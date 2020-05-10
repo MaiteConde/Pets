@@ -33,7 +33,7 @@ const Register = props => {
                 <TextField type="text" label="Surname" name="surname"/>
                 <TextField type="email" label="Email" name="email"/>
                 <TextField type="password" label="Password" name="password" />
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" class="bubbly-button" >
                     Register
                 </Button>
             </form>

@@ -12,6 +12,7 @@ const userReducer = (state = {}, action) => {
                     ...state,
                     userId: action.user
                 }
+              
             case 'CLEAR':
                 return{
                     state: undefined

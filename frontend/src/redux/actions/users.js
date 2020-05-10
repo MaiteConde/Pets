@@ -79,6 +79,7 @@ export const giveValuation = async(id, user) => {
         }) 
     }
 
+
       export const clearData = () => {
         store.dispatch({
             type: 'CLEAR'
