@@ -48,7 +48,7 @@ const Post = props => {
                 <TextField type="text" required label="history" name="history" placeholder="cats history" />
                 <TextField type="text" required label="location" name="location" placeholder="catslocation" />
 
-                <input type="file"  name="image"/>
+                <input type="file"  name="image" id="file-input"/> 
 
                 <Button type="submit" variant="contained" color="primary">
                     Send

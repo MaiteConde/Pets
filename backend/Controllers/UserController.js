@@ -35,14 +35,14 @@ const UserController = {
 
     async valu(req, res) {
         try {
-                await User.findByIdAndUpdate(req.params._id, {
+               const user = await User.findByIdAndUpdate(req.params.id, {
                     $push: {
-                        valuations: {user: req.user._id, text:req.body.text},
+                        valuations: {user: req.user._id, valu:req.body.valu, points:req.body.points, date: new Date()},
                       
                     }
                 });
             
-            res.send('ok')
+            res.send(user)
         } catch (error) {
             console.log(error);
             res.status(500).send({
@@ -52,33 +52,33 @@ const UserController = {
     },
 
 
-    async stars(req, res) {
-        try {
+    // async stars(req, res) {
+    //     try {
              
-            await User.findByIdAndUpdate(req.params._id, {
-                $push: {
-                    stars: {user: req.user._id, value:req.body.value, avgQuantity: User.aggregate ( [
-                        {
-                          $group:
-                            {
-                              _id: "$stars",
-                            //   avgAmount: { $avg: { $multiply: [ "$price", "$quantity" ] } },
-                              avgQuantity: { $avg: "$value" }
-                            }
-                        }
-                      ])}   
-                } 
-            });
+    //         await User.findByIdAndUpdate(req.params._id, {
+    //             $push: {
+    //                 stars: {user: req.user._id, value:req.body.value, avgQuantity: User.aggregate ( [
+    //                     {
+    //                       $group:
+    //                         {
+    //                           _id: "$stars",
+    //                         //   avgAmount: { $avg: { $multiply: [ "$price", "$quantity" ] } },
+    //                           avgQuantity: { $avg: "$value" }
+    //                         }
+    //                     }
+    //                   ])}   
+    //             } 
+    //         });
             
             
-            res.send('ok')
-        } catch (error) {
-            console.log(error);
-            res.status(500).send({
-                message: 'There was a problem trying to follow'
-            })
-        }
-    },
+    //         res.send('ok')
+    //     } catch (error) {
+    //         console.log(error);
+    //         res.status(500).send({
+    //             message: 'There was a problem trying to follow'
+    //         })
+    //     }
+    // },
 
 
     async login(req, res) {

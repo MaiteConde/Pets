@@ -1,0 +1,23 @@
+.userData {
+    height: 75vh;
+    display: flex;
+    
+    Button {
+        margin: 1em !important;
+    }
+}
+.dog {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+    width: 50%;
+    
+    
+}
+.cat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+
+}

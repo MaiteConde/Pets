@@ -5,8 +5,9 @@ const { uploadMessageImages } = require('../middleware/multer.js')
 
 
 // router.get('/', MessageController.getAll)
-router.get('/get/:id', authentication, MessageController.getMessages) //los que envía la usuaria conectada 
-// router.get('/get/:id', authentication, MessageController.getSenderMessage) //los que recibe la ususaria conectada
+router.get('/get/user/:id', authentication, MessageController.getMessages) 
+router.get('/get', authentication, MessageController.getMessageUser) 
+router.get('/message/:id', authentication, MessageController.getMessageId) 
 router.post('/:id', authentication, MessageController.insert)
 
 module.exports = router;

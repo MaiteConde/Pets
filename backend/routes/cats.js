@@ -10,6 +10,7 @@ const {isAuthorCat} = require('../middleware/authenticaction');
 
 router.get('/', CatController.getAll);
 router.get('/cats/:id', CatController.getCatByUser)
+router.get('/search/:search', CatController.getCatLocation)
 router.get('/:id',  CatController.getCatById)
 router.post('/post',authentication, uploadCatImages.single('image'), CatController.insert);
 router.put('/put/:_id', authentication, isAuthorCat, uploadCatImages.single('image'),  CatController.update);

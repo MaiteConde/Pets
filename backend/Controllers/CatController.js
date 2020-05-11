@@ -51,7 +51,7 @@ async delete(req, res) {
     
     try {
         const _id = req.params._id
-        await Cat.findByIdAndDelete(_id) // mongoose method which uses the findOneAndDelete()
+        await Cat.findByIdAndDelete(_id) 
         res.send({ message: 'publication deleted' })
     
     } catch (error) {
@@ -61,6 +61,16 @@ async delete(req, res) {
 
 
 },
+
+async getCatLocation(req, res){
+    try {
+        const cat = await Cat.find({location: req.params.search})
+        res.send({cat})
+    } catch (error) {
+        console.error(error)
+    }
+   
+}
 
 }
 module.exports = CatController;

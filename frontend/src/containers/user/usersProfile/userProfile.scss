@@ -1,3 +1,5 @@
+@import '../../../colors.scss';
+
 .catDog{
 display: flex;
 justify-content: center;
@@ -13,4 +15,56 @@ align-items: center;
 height: 8em;
 }
 
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    width: 25em;
+}
 
+.ant-collapse > .ant-collapse-item {
+    width: 25em;
+
+}
+.ant-collapse {
+    width: 25em;
+
+}
+
+
+.valu{
+display: flex;
+flex-direction: column;  
+background-color: $gray;
+border-left: 3px black solid;
+margin: 2em;
+width: 90%;
+text-align: left;
+height: 10em;
+padding: 0.5em;
+h5 {
+align-self: flex-end;
+justify-self: flex-end;
+}
+}
+  
+    .t{
+        text-align: left;
+        margin: 1.5em;
+    }
+
+.catP{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20em;
+    margin: 2em;
+    width: 50%;
+}
+
+.dogP{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20em;
+    margin: 2em;
+    width: 50%;
+
+}

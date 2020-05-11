@@ -1,13 +1,9 @@
 @import '../../../colors.scss';
 
 .profileContainer {
-  
     display: flex;
     justify-content: center;
-    background-image: url('https://as2.ftcdn.net/jpg/02/69/01/49/500_F_269014986_gSUMMnmr5H7euHe09qeBKIQQwwjq3u8Z.jpg');
-    background-position-x: right;
-    background-position-y: 35em;
-    background-repeat: no-repeat;
+    height: 3em;
 }
 form {
     display: flex;
@@ -20,7 +16,7 @@ form {
     }
 }
 Button {
-        margin: 3em 25em !important;
+        margin: 1em 25em 0 !important;
         width: 10em !important;
         color: white;
         background-color: $Dark !important;
@@ -29,48 +25,13 @@ Button {
 
 
 
-
-// .ant-card-body {
-//     border: solid gainsboro;
-// }
-
-
 h4{
 text-align: left;
 }
 
-// label[for="file"]{
-//     display: block;
-//     margin-bottom: 1em;
-//     font-size: 1em;
-//     color: black;
-//     opacity: .9;
-//     font-weight: bold;
-//   }
-  
-//   input[type="file"] {
-    
-//     cursor: pointer;
-    
-//     &::-webkit-file-upload-button {
-//       background: $Solid ;
-//       border: 0;
-//       padding: 1em 2em;
-//       cursor: pointer;
-//       color: black;
-//       border-radius: .2em;
-//     }
-    
-//     &::-ms-browse {
-//       background: $Solid ;
-//       border: 0;
-//       padding: 1em 2em;
-//       cursor: pointer;
-//       color: #fff;
-//       border-radius: .2em;
-//     }
-    
-//   }
+label[for="file-input"] {
+  margin: 0
+}
 .image-upload>input {
     display: none;
   }

@@ -7,6 +7,7 @@ const dogReducer = (state = {}, action) => {
                 dogs: action.payload
             }
             case 'GET_DOG_ID':
+                case 'GET_DOG_SEARCH':
                 return{
                         ...state,
                         dog: action.payload

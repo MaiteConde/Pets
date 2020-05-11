@@ -9,15 +9,23 @@ import './userProfile.scss'
 import { getDogsUser } from '../../../redux/actions/dogs';
 import { Card } from 'antd';
 import { Collapse } from 'antd';
-const { Panel } = Collapse;
+import ValuForm from '../Valuation/valuation';
+import { Rate } from 'antd';
+
+
 
 const User = ({ userId, cats, dogs}) => {
+  const { Panel } = Collapse;
+  function callback(key) {
+    console.log(key);
+    }
     let location = useLocation();
     const id = location.pathname.replace('/user/','')
     useEffect(() => {
-        // getInfo()
+      // getInfo()
         getInfoId(id)
         getCatsUser(id)
+        
         getDogsUser(id)
         // return () => {clearData()}
 
@@ -31,11 +39,6 @@ const User = ({ userId, cats, dogs}) => {
      userId?.map(function(user) {
         const image = `http://localhost:3000/images/dogs/${user?.image_path}`;
         
-const { Panel } = Collapse;
-
-function callback(key) {
-  console.log(key);
-}
 
          return ( 
 
@@ -46,77 +49,67 @@ function callback(key) {
      <p>{user.name}</p>
     <p>{user.email}</p>
 
-
-    <h2>Valuations:</h2>
-    
-        {user.valuations.map(valuation => {
-          return ( 
-
-            <Collapse defaultActiveKey={['1']} onChange={callback}>
-            <Panel header= {valuation?.user.name} key="1">
-              <p>{valuation.text}</p>
-            </Panel>
-            
-          </Collapse>
-
-
-           
-            )
-         
-        })  }
   </div>
+  
   )
 
             })
         }
 
         <div className="catDog">
-                <div>
+                <div className="catP">
             <h2>Cat publications</h2>
 
                 { cats?.map(function(cato) {
-                    return  <NavLink to= {`/cat/${cato._id}`} activeClassName="isActive" exact>
-
-                    <Card className="cato" key={cato._id}
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={<img alt="example" src={`http://localhost:3000/images/cats/${cato.image_path}`} />}
-                    >
-                     <p>{cato.name}</p>
-                    <p>{cato.age}</p>
-                            
-                  </Card>
                   
-                
-                  </NavLink>
+                  
+                  return  <div className="caat">
+                  <Collapse defaultActiveKey={['1']} onChange={callback}>
+                  
+                  <Panel header= {cato.name} key="0">
+                      <NavLink to= {`/cat/${cato._id}`} activeClassName="isActive" exact>
+                    <img alt="example" src={`http://localhost:3000/images/cats/${cato.image_path}`} />
+                    </NavLink>
+                  </Panel>
+                </Collapse> 
+                </div>
                 })}
 
                 </div>
-                <div>
+                <div className="dogP">
                 <h2>Dog publications</h2>
 
                 { dogs?.map(function(dogo) {
-                    return  <NavLink to= {`/dog/${dogo._id}`} activeClassName="isActive" exact>
-
-                    <Card className="dogo" key={dogo._id}
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={<img alt="example" src={`http://localhost:3000/images/dogs/${dogo.image_path}`} />}
-                    >
-                     <p>{dogo.name}</p>
-                    <p>{dogo.age}</p>
-                            
-                  </Card>
+                    return  <Collapse defaultActiveKey={['1']} onChange={callback}>
                   
-                
-                  </NavLink>
+                    <Panel header= {dogo.name} key="0">
+                        <NavLink to= {`/dog/${dogo._id}`} activeClassName="isActive" exact>
+                      <img alt="example" src={`http://localhost:3000/images/dogs/${dogo.image_path}`} />
+                      </NavLink>
+                    </Panel>
+                  </Collapse> 
                 })}
                           
                 </div>
                 </div>
+<h2 className="t">valuations:</h2>
+                  {userId?.map(function(user) {
+                     return ( 
+                       user?.valuations.map(valuation => {
+                        return ( 
+<div className="valu">
+                          <h3>{valuation.user.name}</h3>
+                        <p>{valuation.valu}</p>
+                        
+                        <h5>{valuation.date}</h5>
+                     <Rate disabled value = {valuation?.points}/>
+                          </div>
+                        )
+                       })
+                     )
+                  })}
 
-
-
+<ValuForm/>
         </div>
     )
     

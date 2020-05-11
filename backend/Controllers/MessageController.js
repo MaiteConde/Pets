@@ -15,12 +15,25 @@ const MessageController = {
             .catch(console.error)
     },
 
-    // getMessage(req, res) {
+    async getMessageUser(req, res) {
+        try {
 
-    //     Message.find({ sender_name: req.user.name })
-    //         .then(messages => res.status(201).send(messages))
-    //         .catch(console.error)
-    // },
+            const recibidos = await Message.find({recipient: req.user.id })
+            .populate('sender')
+        
+            const enviados = await Message.find({ sender: req.user.id})
+            .populate('sender')
+          
+            res.status(201).send({ recibidos, enviados})
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({ message: 'There was a problem trying to get your messages' })
+        }
+    },
+
+
+
+
    
     async getMessages(req, res) {
         try {
@@ -38,8 +51,20 @@ const MessageController = {
             console.error(error);
             res.status(500).send({ message: 'There was a problem trying to get your messages' })
         }
-    }
+    },
+
+
+    getMessageId(req, res) {
+        Message.findById(req.params.id)
+        .populate('sender')
+        .populate('recipient')
+        // .populate('stars.user')
+            .then(message => res.send(message),  )
+            .catch(console.error);
+    },
 }
+
+
 
 
 

@@ -12,6 +12,18 @@ const userReducer = (state = {}, action) => {
                     ...state,
                     userId: action.user
                 }
+                case 'GET_MESSAGES':
+                case 'GET_MESSAGE':
+                return {
+                    ...state,
+                    messages: action.messages
+                }
+               
+                case 'LOCATIONS':
+                    return {
+                        ...state,
+                        locations: action.locations
+                    }
               
             case 'CLEAR':
                 return{

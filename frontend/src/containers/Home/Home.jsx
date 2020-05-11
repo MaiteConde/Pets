@@ -4,11 +4,16 @@ import Map from '../Geolocation/Geolocation'
 import { NavLink } from 'react-router-dom';
 import './Home.scss'
 import { getAllCats } from '../../redux/actions/cats';
+import { locations } from '../../redux/actions/locations';
 
-const Home = ({cats}) => {
+
+
+
+const Home = ({cats, provincias}) => {
       
         useEffect(() => {
             getAllCats()
+            locations()
         }, [])
     return (
 <div className="container">
@@ -18,8 +23,8 @@ const Home = ({cats}) => {
     <h1>Find the right pet for you</h1>
     </div>
 </div>
+<div className="buttonCon">
     <div className="contents">
-        
         <NavLink to='/dogs' activeClassName="isActive" exact>
 <img src="https://image.flaticon.com/icons/png/512/91/91533.png" alt=""/>
              <span>find a Dog</span> 
@@ -30,7 +35,9 @@ const Home = ({cats}) => {
         <img src="https://image.flaticon.com/icons/png/512/24/24674.png" alt=""/>
         <span>find a Cat</span> </NavLink>
     </div>
+    </div>
 <div className="petInfo">
+
     <div className="doginfo">
     <h1> <span>Dog</span> facts</h1>
     <p>Dogs fill a variety of roles in human society and are often trained as working dogs. For dogs that do not have traditional jobs, a wide range of dog sports provide the opportunity to exhibit their natural skills.</p>
@@ -47,5 +54,5 @@ const Home = ({cats}) => {
     )
 }
 
-const mapStateToProps = ({cat}) =>({cats:cat.cats?.cats});
+const mapStateToProps = ({cat, provincias}) =>({cats:cat.cats?.cats, provincias:provincias?.provincias});
 export default  connect(mapStateToProps)  (Home);

@@ -18,15 +18,17 @@ import UserProfile from './containers/user/usersProfile/userProfile'
 import Valuation from './containers/user/Valuation/valuation'
 import Home from './containers/Home/Home'
 import Geolocation from './containers/Geolocation/Geolocation'
+import Messages from './containers/user/Messages/Messages'
+import Message from './containers/user/Messages/Message'
+
 
 import NotFound from './containers/Notfound/Notfound';
-
-
 
 import { Button } from '@material-ui/core';
 import { editCat } from './redux/actions/cats';
 import valuation from './containers/user/Valuation/valuation';
 import Footer from './components/Footer/Footer';
+import SearchCat from './containers/pets/cats/SearchCat';
 
 function App() {
 
@@ -52,17 +54,21 @@ function App() {
           <Route path='/postCat' component={PostCat} />
           <Route path='/adoptions' component={Adoptions} />
           <Route path='/valuation/:id' component={Valuation} />
+          <Route path='/messages' component={Messages} />
+          <Route path='/message/:id' component={Message} />
           <Route path='/geo' component={Geolocation} />
+          <Route path='/searchcat/:search' component={SearchCat} />
+
           <Route exact path='*' component={NotFound} />
          
         </Switch>
-        <Footer/>
       </BrowserRouter>
 
       {/* <div className="title">
        <h1>ADOPT<br></br> DONT SHOP</h1> 
        <Button>KNOW MORE</Button>
       </div> */}
+      {/* <Footer/> */}
     </div>
 
     

@@ -10,18 +10,12 @@ import './SendMessage.scss'
 import { getDogsUser, getDogId } from '../../../redux/actions/dogs';
 
 
-const MessageCat = props => {
-    let location = useLocation();
-    const id = location.pathname.replace('/cat/','')
-    useEffect(() => {
-        getInfo()
-        getCatId(id)
-        // return () => {clearData()}
-    }, [])
+const MessageCat = ({user, cat}) => {
+ 
     
     const handleSubmit = event =>{
-        const idS = props.user._id
-        const userId = props.cat?.user._id
+        const idS = user._id
+        const userId = cat?.user._id
         event.preventDefault();
         const message ={
             sender: idS,

@@ -82,6 +82,25 @@ export const postCat = async (formData) => {
               }) 
             
               }
+    
+    export const getCatSearch = async(search) => {
+        try {     
+            const res = await axios.get(API_URL + `cats/search/${search}`, {
+                headers: {
+                    Authorization: localStorage.getItem('authToken')
+                }
+            });
+            store.dispatch({
+                type: 'GET_CAT_SEARCH',
+                payload: res.data
+            })
+       
+
+        } catch (error) {
+            console.error(error)
+        }
+     
+    }
 
           export const clearData = () => {
             store.dispatch({

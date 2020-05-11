@@ -1,0 +1,27 @@
+.containersearchDog {
+    display: flex;
+    border-top-left-radius: 8em;
+    border-top-right-radius: 8em;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://wallpaperaccess.com/full/434959.jpg') ;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: cover;
+    margin-bottom: 10em;
+    .ant-input-search-enter-button + .ant-input-group-addon, .ant-input-search-enter-button input + .ant-input-group-addon {
+        opacity: 0;
+        
+
+    }
+    
+    .ant-input-group > .ant-input:first-child, .ant-input-group-addon:first-child {
+        background-color: rgba(0, 0, 0, 0) ;
+        color: white !important;
+        width: 200%;
+        height: 5em;
+    }
+}
+
+

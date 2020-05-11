@@ -54,7 +54,6 @@ const Cat = ({ cat, user}) => {
     </a>
   </Dropdown>: '' }
 
-    {/* < NavLink to= {`/user/${cat?.user?._id}`} activeClassName="isActive" exact>{cat?.user.name}</NavLink> */}
           
     </div>
                   
@@ -64,7 +63,7 @@ const Cat = ({ cat, user}) => {
             <h2>Info:</h2>
 <div className="infoC">
                      <span> <h3> <img src="https://image.flaticon.com/icons/png/512/87/87221.png" alt=""/> Sex:</h3>  <br/> {cat?.sex}</span>
-                     {/* <span> <h3>HIstory:</h3>  <br/> {cat?.history}</span> */}
+
                     <span> <h3> <img src="https://image.flaticon.com/icons/png/512/113/113099.png" alt=""/> Age: </h3><br/> {cat?.age}</span>
 
                     <span> <h3> <img src="https://image.flaticon.com/icons/png/512/52/52177.png" alt=""/> Location: </h3><br/> {cat?.location}</span>
@@ -83,7 +82,8 @@ const Cat = ({ cat, user}) => {
                     <div className="adopt">
                         <h2>ADOPT</h2>
                 <p>If you are insterested in this pet, you can contact with the actual owner:</p>
-                <span> <h3>{cat?.user.name}</h3></span>
+                   < NavLink to= {`/user/${cat?.user?._id}`} activeClassName="isActive" exact>{cat?.user.name}</NavLink>
+
 
                 <MessageCat/>
                     </div>

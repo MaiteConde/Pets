@@ -63,6 +63,15 @@ async delete(req, res) {
 
 
 },
+async getDogLocation(req, res){
+    try {
+        const dog = await Dog.find({location: req.params.search})
+        res.send(dog)
+    } catch (error) {
+        console.error(error)
+    }
+   
+}
 
 
 }

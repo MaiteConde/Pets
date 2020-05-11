@@ -81,6 +81,25 @@ export const postDog = async (formData) => {
               }) 
             
               }
+
+              export const getDogSearch = async(search) => {
+                try {     
+                    const res = await axios.get(API_URL + `dogs/search/${search}`, {
+                        headers: {
+                            Authorization: localStorage.getItem('authToken')
+                        }
+                    });
+                    store.dispatch({
+                        type: 'GET_DOG_SEARCH',
+                        payload: res.data
+                    })
+               
+        
+                } catch (error) {
+                    console.error(error)
+                }
+             
+            }
   
           export const clearData = () => {
             store.dispatch({

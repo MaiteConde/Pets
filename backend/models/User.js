@@ -9,27 +9,22 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         required: true
     },
+    location:String,
     password: {
         type: String,
         required: true
     },
 
     valuations: [{
-        text: String,
+        points:Number,
+        valu: String,
+        date: String,
         user: {
             type: ObjectId,
             ref: 'User'
         },
     }],
 
-    stars: [{
-        value:Number,
-        avgQuantity: Number,
-        user: {
-            type: ObjectId,
-            ref: 'User'
-        },
-    }],
 
     role: String,
 

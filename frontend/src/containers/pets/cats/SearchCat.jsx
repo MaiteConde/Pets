@@ -1,29 +1,25 @@
 import React, { useEffect, Fragment } from 'react'
 import { connect } from 'react-redux';
 import './Cats.scss'
+import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import { Card } from 'antd';
 
-import { getAllCats, clearData } from '../../../redux/actions/cats';
-import InSearch from './InputSearch';
-import { getInfo } from '../../../redux/actions/users';
 
-const Cats = props => {
+import {getCatSearch } from '../../../redux/actions/cats';
+
+const CatSearch = ({cat}) => {
+    let location = useLocation();
+    const search = location.pathname.replace('/searchcat/','')
     useEffect(() => {
-        getAllCats()
-        return () => {clearData(); getInfo()}
+        getCatSearch(search)
     }, [])
-    if(!props.cats) return <div class="loader"></div>
-
+    if(!cat) return <div class="loader"></div>
     return (
 <Fragment>
-    <InSearch/>
-
-         
-        <div className="cats">
-        
- { 
-     props.cats?.map(function(cato) {
+    <div className="cats">
+    { 
+    cat?.map(function(cato) {
          return ( 
       <NavLink to= {`/cat/${cato._id}`} activeClassName="isActive" exact>
 
@@ -33,7 +29,7 @@ const Cats = props => {
     cover={<img alt="example" src={`http://localhost:3000/images/cats/${cato.image_path}`} />}
     >
      <p>{cato.name}</p>
-    
+    <p>{cato.age}</p>
             
   </Card>
   
@@ -43,11 +39,11 @@ const Cats = props => {
 
             })
         }
-    </div>
+           </div>
 
 </Fragment>
 )
 }
 
-const mapStateToProps = ({cat}) =>({cats:cat.cats?.cats});
-export default connect(mapStateToProps)  (Cats);
+const mapStateToProps = ({cat}) =>({cat:cat.cat?.cat});
+export default connect(mapStateToProps)  (CatSearch);

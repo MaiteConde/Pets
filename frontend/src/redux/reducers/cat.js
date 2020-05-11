@@ -7,6 +7,7 @@ const catReducer = (state = {}, action) => {
                 cats: action.payload
             }
             case 'GET_CAT_ID':
+            case 'GET_CAT_SEARCH':
             return{
                     ...state,
                     cat: action.payload

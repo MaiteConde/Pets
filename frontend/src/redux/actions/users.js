@@ -71,12 +71,13 @@ export const editProfile = async (formData, id) => {
    
       }
 
-export const giveValuation = async(id, user) => {
-        return axios.put(API_URL + `users/valuation/${id}`, user,{
+export const giveValuation = async (valuation, id) => {
+        await axios.put(API_URL + `users/valuation/${id}`, valuation,{
             headers: {
                 Authorization: localStorage.getItem('authToken')
             }
         }) 
+        return getInfoId(id)
     }
 
 export const sendMessage = async(message, userId) => {
@@ -86,7 +87,35 @@ export const sendMessage = async(message, userId) => {
         }})
     }
 
+    export const getMEssages = async () => {
+        const res = await axios.get(API_URL + 'messages/get', {
+            headers: {
+                Authorization: localStorage.getItem('authToken')
+            }
+        }) 
+        store.dispatch({
+            type: 'GET_MESSAGES',
+            messages:res.data
+        })
+    return res;
+    }
 
+    export const getMEssage = async (id) => {
+        const res = await axios.get(API_URL + `messages/message/${id}`, {
+            headers: {
+                Authorization: localStorage.getItem('authToken')
+            }
+        }) 
+        store.dispatch({
+            type: 'GET_MESSAGE',
+            messages:res.data
+        })
+    return res;
+    }
+
+
+
+    
       export const clearData = () => {
         store.dispatch({
             type: 'CLEAR'

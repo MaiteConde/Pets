@@ -1,3 +1,4 @@
+@import '../../../colors.scss';
 
 .infoC {
   display: flex;
@@ -66,21 +67,25 @@ margin: 0.5em !important;
     color: black;
   }
   span {
-    cursor: pointer;
+  
     padding: 5em;
     color: inherit;
   }
-  a {
-    all: unset;
-  }
-  cursor: pointer;
 }
 .iconImage {
   height: 1em !important;
- }
+}
 
- .buttons span {
-   padding: 0;
- }
+.buttons span {
+  padding: 0;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+  &:hover {
+    color: $Solid;
+}
+}
 
                       

@@ -9,9 +9,10 @@
     border-top-right-radius: 8em;
     display: flex;
     align-items: center;
+    justify-content: center;
   
     height: 70vh;
-    background-image: url('https://wallpaperaccess.com/full/434959.jpg');
+    background-image: url('https://www.petdox.com/wp-content/uploads/revslider/home-section-3/bg_sec3_1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: center;
@@ -19,6 +20,7 @@
 h1 {
     color: white !important;
     font-size: 4em;
+    opacity: 40%;
 }
 .title {
     width: 30%;
@@ -33,7 +35,7 @@ h1 {
     .contents {
         width: 50%;
         height: 7em;
-        margin: 0 30em;
+       
         background-color:#F0F1FA !important;
         ;
         border-radius: 3em;
@@ -70,4 +72,8 @@ h1 {
 
           }
       }
+    }
+    .buttonCon {
+        display: flex;
+        justify-content: center;
     }
