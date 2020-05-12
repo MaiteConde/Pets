@@ -75,7 +75,7 @@ if(!dog) return <div class="loader"></div>
                     <div className="adopt">
                         <h2>ADOPT</h2>
                 <p>If you are insterested in this pet, you can contact with the actual owner:</p>
-                <span> <h3>{dog?.user.name}</h3></span>
+                < NavLink to= {`/user/${dog?.user?._id}`} activeClassName="isActive" exact>{dog?.user.name}</NavLink>
 
                 <MessageDog/>
                     </div>

@@ -33,6 +33,7 @@ const Cats = props => {
     cover={<img alt="example" src={`http://localhost:3000/images/cats/${cato.image_path}`} />}
     >
      <p>{cato.name}</p>
+         {/* <p>{cato.createdAt}</p> */}
     
             
   </Card>

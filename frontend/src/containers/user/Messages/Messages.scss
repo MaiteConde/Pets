@@ -1,0 +1,17 @@
+@import '../../../colors.scss';
+
+.messages {
+    display: flex;
+    justify-content: center;
+    .cardcontent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        color: black;
+    }
+    .ant-card-body {
+        background-color: $gray;
+        height: 4em;
+    }
+}

@@ -25,7 +25,7 @@ const Dogs = props => {
          { 
              props.dogs?.map(function(dogo) {
                  return ( 
-              <NavLink to= {`/cat/${dogo._id}`} activeClassName="isActive" exact>
+              <NavLink to= {`/dog/${dogo._id}`} activeClassName="isActive" exact>
         
             <Card className="dogo" key={dogo._id}
             hoverable

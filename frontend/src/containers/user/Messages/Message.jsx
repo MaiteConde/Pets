@@ -4,10 +4,17 @@ import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import { Card } from 'antd';
 import { getMEssage, clearData } from '../../../redux/actions/users';
-import Messages from './Messages';
+import './Message.scss'
+import { Modal, Button } from 'antd';
+import MessageResponse from '../Messages/ResponseMessage'
+
+const ReachableContext = React.createContext();
+const UnreachableContext = React.createContext();
+
 
 
 const Dogs = ({message}) => {
+    const [modal, contextHolder] = Modal.useModal();
     let location = useLocation();
     const id = location.pathname.replace('/message/','')
     useEffect(() => {
@@ -15,17 +22,40 @@ const Dogs = ({message}) => {
         return () => {clearData()}
     }, [])
 
-
+const image = `http://localhost:3000/images/dogs/${message?.sender?.image_path}` 
     if(!message) return <div class="loader"></div>
-
+    const config = {
+        title: 'Modal',
+        content: (
+          <div className="modal">
+              <MessageResponse/>
+           <div> <ReachableContext.Consumer>{name => ''}</ReachableContext.Consumer>
+            <br />
+            <UnreachableContext.Consumer>{name => ``}</UnreachableContext.Consumer>
+            </div>
+          </div>
+        ),
+      };
     return (
-        <div className="mess">
-            <h3>{message?.sender?.name}</h3>
-           <p>{message?.message}</p>
+        <div className="message">
+ <Card style={{ width: 900 }}>   
 
-          
-    </div>
-
+ <div className="messagerec">
+ 
+           <div className="name"> <img className="imagepro" src={image} alt=""/><h3>{message?.sender?.name}</h3></div> 
+          <div className="messa"><p>{message?.message}</p></div> 
+          <div className="date"><p>{message?.createdAt}</p></div> 
+          <ReachableContext.Provider value="Light">
+      <Button onClick={() => {modal.info(config)}}>
+        Respond
+      </Button>
+      {contextHolder}
+      <UnreachableContext.Provider value="Bamboo" />
+    </ReachableContext.Provider>
+           </div>  
+           
+           </Card>
+           </div>
     )
 }
 

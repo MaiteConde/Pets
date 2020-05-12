@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 
 import { Button } from '@material-ui/core';
 import {editProfile, getInfo, getMEssages} from '../../../redux/actions/users'
-import { Card, Avatar } from 'antd';
+import { Card } from 'antd';
+import './Messages.scss'
+
 
 const { Meta } = Card;
 
@@ -25,22 +27,26 @@ const Messages = ({message}) => {
     
     if(!message) return <div class="loader"></div>
     return (
-        <div>
+
+        <div className="messages">
            
          
  <div>
   <h2>Received</h2>
      {message?.recibidos?.map(function(recibido){
          return ( 
-             <div className="received">
-      <h3>{recibido.sender.name}</h3>
+            <Card style={{ width: 900 }}>     
 
   <NavLink to= {`/message/${recibido?._id}`} activeClassName="isActive" exact>
-       <p>{recibido?.message}</p>
-         <p>{recibido?.createdAt}</p>
+      <div className="cardcontent">
+         <div>{recibido.sender.name}</div>
+       <div>{recibido?.subject}</div>
+         <div>{recibido?.createdAt}</div>
+         </div>
     </NavLink>
     
- </div>
+    </Card>
+
 
 
 )
