@@ -9,12 +9,8 @@ import { locations } from '../../redux/actions/locations';
 
 
 
-const Home = ({cats, provincias}) => {
-      
-        useEffect(() => {
-            getAllCats()
-            locations()
-        }, [])
+const Home = () => {
+     
     return (
 <div className="container">
 <Map/>     
@@ -54,5 +50,4 @@ const Home = ({cats, provincias}) => {
     )
 }
 
-const mapStateToProps = ({cat, provincias}) =>({cats:cat.cats?.cats, provincias:provincias?.provincias});
-export default  connect(mapStateToProps)  (Home);
+export default  Home;

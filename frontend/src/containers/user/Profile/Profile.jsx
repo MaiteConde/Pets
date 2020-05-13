@@ -48,8 +48,10 @@ const Put = ({user}) => {
 
                
             <form onSubmit={handle}>
-                <p>Here you can change your info</p> <p>< NavLink to= {'/adoptions'} activeClassName="isActive" exact>My adoption publications</NavLink>
-</p>
+                <span>Here you can change your info | < NavLink to= {`user/${user?._id}`} activeClassName="isActive" exact>Public profile</NavLink>
+</span>
+                <p>< NavLink to= {'/adoptions'} activeClassName="isActive" exact> My adoption publications</NavLink>
+</p> 
 
 
                 <div class="image-upload">
@@ -67,7 +69,7 @@ const Put = ({user}) => {
             
                
 
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" class="bubbly-button">
                     Edit
                 </Button>
             </form>

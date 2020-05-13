@@ -4,6 +4,7 @@
 //     height: 100%;
    
 // }
+
 .headerDog {
     border-top-left-radius: 8em;
     border-top-right-radius: 8em;
@@ -49,7 +50,6 @@ h1 {
             color: black;
             &:hover {
                 color: $Dark;
-                
             }
         }
         img {
@@ -78,3 +78,5 @@ h1 {
         display: flex;
         justify-content: center;
     }
+
+    

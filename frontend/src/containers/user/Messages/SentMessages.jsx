@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import {editProfile, getInfo, getMEssages} from '../../../redux/actions/users'
 import { Card } from 'antd';
+import Menu from './LittleMenu'
+
 import './Messages.scss'
 
 const SendedMessages = ({message}) => {
@@ -15,14 +17,27 @@ const SendedMessages = ({message}) => {
     }, [])
     
     if(!message) return <div class="loader"></div>
+    
+    if(message?.enviadosRev <= 0) return <div className="empty">
+
+    <Menu/>
+    <div>
+        <h3>You don't have any messages</h3></div>
+    <div>
+            <img src="https://image.flaticon.com/icons/png/512/70/70562.png" alt=""/></div>
+            {console.log(message)}
+        </div>
+
     return (
 
         <div className="messages">
-           
+                      <Menu/>
+
          
  <div>
-  <h2>Received</h2>
-     {message?.enviados?.map(function(enviado){
+
+     {message?.enviadosRev?.map(function(enviado){
+
          return ( 
             <Card style={{ width: 900 }}>     
 

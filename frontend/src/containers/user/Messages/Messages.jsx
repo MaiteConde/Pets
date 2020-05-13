@@ -2,9 +2,10 @@ import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Button } from '@material-ui/core';
+import { Button} from '@material-ui/core';
 import {editProfile, getInfo, getMEssages} from '../../../redux/actions/users'
 import { Card } from 'antd';
+import Menu from './LittleMenu'
 import './Messages.scss'
 
 
@@ -19,15 +20,29 @@ const Messages = ({message}) => {
     
     if(!message) return <div class="loader"></div>
     
-    return (
+    if(message?.recibidosRev?.length <= 0) return <div className="extramenu">
+    
+<Menu/>
+    <div className="empty">
 
-        <div className="messages">
-           
+<div className="MenuMess">
+
+    <h3>You don't have any messages</h3></div>
+<div>
+        <img src="https://image.flaticon.com/icons/png/512/70/70562.png" alt=""/></div>
+
+        {console.log(message)}
+    </div>
+    </div>
+   
+   return (
+       
+       <div className="messages">
+           <Menu/>
          
  <div>
-  <h2>Received</h2>
-  <h2>Sent</h2>
      {message?.recibidosRev?.map(function(recibido){
+         
          return ( 
             <Card style={{ width: 900 }}>     
 

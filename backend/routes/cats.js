@@ -13,7 +13,7 @@ router.get('/cats/:id', CatController.getCatByUser)
 router.get('/search/:search', CatController.getCatLocation)
 router.get('/:id',  CatController.getCatById)
 router.post('/post',authentication, uploadCatImages.single('image'), CatController.insert);
-router.put('/put/:_id', authentication, isAuthorCat, uploadCatImages.single('image'),  CatController.update);
+router.put('/put/:_id', authentication, uploadCatImages.single('image'),  CatController.update);
 router.delete('/delete/:_id', authentication, CatController.delete);
 
 

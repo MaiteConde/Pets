@@ -8,18 +8,18 @@ import { Card } from 'antd';
 
 import {getCatSearch } from '../../../redux/actions/cats';
 
-const CatSearch = ({cat}) => {
+const CatSearch = ({catSearch}) => {
     let location = useLocation();
     const search = location.pathname.replace('/searchcat/','')
     useEffect(() => {
         getCatSearch(search)
     }, [])
-    if(!cat) return <div class="loader"></div>
+    if(!catSearch) return <div class="loader"></div>
     return (
 <Fragment>
     <div className="cats">
     { 
-    cat?.map(function(cato) {
+    catSearch?.map(function(cato) {
          return ( 
       <NavLink to= {`/cat/${cato._id}`} activeClassName="isActive" exact>
 
@@ -45,5 +45,5 @@ const CatSearch = ({cat}) => {
 )
 }
 
-const mapStateToProps = ({cat}) =>({cat:cat.cat?.cat});
+const mapStateToProps = ({cat}) =>({catSearch:cat.catSearch?.cat});
 export default connect(mapStateToProps)  (CatSearch);

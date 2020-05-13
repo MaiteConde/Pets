@@ -11,17 +11,19 @@ const { SubMenu } = Menu;
 
 const Header = props => {
 
-
+    
     return <header className="header" id= "header">
  
- <NavLink to='/' activeClassName="isActive" exact>Home</NavLink>
+ <NavLink to='/' activeClassName="isActive" exact><img src="https://image.flaticon.com/icons/png/512/69/69524.png" alt=""/></NavLink>
+ 
 
         {props.user?.user?
             <div className="userZone">
-                <NavLink to='/profile' activeClassName="isActive" exact>{props.user.user.name}</NavLink>
-                <NavLink to='/messages' activeClassName="isActive" exact>Messages</NavLink>
+              <NavLink to='/profile' activeClassName="isActive" exact><img src="https://image.flaticon.com/icons/png/512/16/16363.png" alt=""/></NavLink>
+    <NavLink to='/messages' activeClassName="isActive" exact><img src="https://image.flaticon.com/icons/png/512/70/70562.png" alt=""/></NavLink>
 
-                <span onClick={logout}>Logout</span>
+
+    <NavLink to='' onClick={logout}>Logout</NavLink>
             </div> : <div className="guestZone">
                 <NavLink to='/login' activeClassName="isActive" exact>Login</NavLink>
                 <NavLink to='/register' activeClassName="isActive" exact>Register</NavLink>

@@ -10,7 +10,7 @@ router.get('/dogs/:id', DogController.getDogByUser)
 router.get('/search/:search', DogController.getDogLocation)
 router.get('/:id', DogController.getDogById)
 router.post('/post',authentication, uploadDogImages.single('image'), DogController.insert);
-router.put('/put/:_id', authentication, isAuthor, uploadDogImages.single('image'), DogController.update);
+router.put('/put/:_id', authentication, uploadDogImages.single('image'), DogController.update);
 
 router.delete('/delete/:_id', authentication, DogController.delete);
 

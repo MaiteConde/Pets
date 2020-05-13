@@ -6,6 +6,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    img {
+        width: 2em;
+        height: 2em !important;
+    }
     a {
         all: unset;
         cursor: pointer;

@@ -11,7 +11,7 @@ import { getInfo } from '../../../redux/actions/users';
 const Cats = props => {
     useEffect(() => {
         getAllCats()
-        return () => {clearData(); getInfo()}
+        // return () => {clearData(); getInfo()}
     }, [])
     if(!props.cats) return <div class="loader"></div>
 

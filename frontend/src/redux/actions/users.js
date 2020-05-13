@@ -32,7 +32,7 @@ export const logout = async() => {
         type: 'LOGOUT'
     })
     
-    return res;
+    return clearData()
 }
 
 export const getInfo = async () => {

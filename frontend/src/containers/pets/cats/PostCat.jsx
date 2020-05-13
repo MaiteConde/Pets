@@ -15,7 +15,7 @@ const Post = props => {
     const handle = event => {
         event.preventDefault();
         const formData = new FormData();
-        formData.set('image', event.target.image.files[0]);
+        if (event.target.image.files[0])  formData.set('image', event.target.image.files[0]);
         formData.set('name', event.target.name.value)
         formData.set('sex', event.target.sex.value)
         formData.set('breed', event.target.breed.value)
@@ -48,7 +48,7 @@ const Post = props => {
                 <TextField type="text" required label="history" name="history" placeholder="cats history" />
                 <TextField type="text" required label="location" name="location" placeholder="catslocation" />
 
-                <input type="file"  name="image" id="file-input"/> 
+                <input type="file" required name="image" id="file-input"/> 
 
                 <Button type="submit" variant="contained" color="primary">
                     Send

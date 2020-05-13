@@ -3,6 +3,7 @@
 .messages {
     display: flex;
     justify-content: center;
+    margin: 3em;
     .cardcontent {
         display: flex;
         justify-content: space-between;
@@ -13,5 +14,21 @@
     .ant-card-body {
         background-color: $gray;
         height: 4em;
+        border-left: solid black;
     }
+}
+
+.empty {
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 52em;
+   
+}
+
+.extramenu {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3em;
 }

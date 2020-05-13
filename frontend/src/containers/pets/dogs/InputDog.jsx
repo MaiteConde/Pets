@@ -10,7 +10,7 @@ const InSearchDog = () => {
     function handleChange(e) {
       if(e.key==='Enter'){
           const search =e.target.value;
-          history.push('/searcdog/'+search);
+          history.push('/searchdog/'+search);
       }
     }
     return (

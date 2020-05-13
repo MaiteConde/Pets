@@ -5,11 +5,13 @@ import './Dogs.scss'
 import { NavLink } from 'react-router-dom';
 import { Card } from 'antd';
 import InSearchDog from './InputDog';
+import { clearData } from '../../../redux/actions/users';
 
 
 const Dogs = props => {
     useEffect(() => {
         getAllDogs()
+        return () => {clearData()}
     }, [])
 
     if(!props.dogs) return <div class="loader"></div>

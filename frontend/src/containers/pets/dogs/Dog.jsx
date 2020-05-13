@@ -17,7 +17,7 @@ const Dog = ({ dog, user }) => {
     const id = location.pathname.replace('/dog/','')
     useEffect(() => {
         getDogId(id)
-        return () => {clearData(); getInfo()}
+        return () => {clearData()}
     }, [])
 
     const menu = (
@@ -80,7 +80,7 @@ if(!dog) return <div class="loader"></div>
                 <MessageDog/>
                     </div>
    
-                </div>
+                </div> 
         </div>
     )
 }

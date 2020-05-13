@@ -4,10 +4,14 @@
     display: flex;
     justify-content: center;
     height: 3em;
+    min-height: 90.5vh;
+
 }
 form {
     display: flex;
     flex-direction: column;
+    // align-items: center;
+
     img {
         width: 10em !important;
         height: 10em !important;
@@ -16,17 +20,23 @@ form {
     }
 }
 Button {
-        margin: 1em 25em 0 !important;
+      justify-self: center;
         width: 10em !important;
         color: white;
-        background-color: $Dark !important;
-         
+        background-color: $Dark !important;  
+        align-self: center; 
+          
+}
+.bubbly-button {
+    margin: 2.5em !important;
 }
 
-
+// .MuiFormControl-root {
+//     width: 100%;
+// }
 
 h4{
-text-align: left;
+align-self: flex-start;
 }
 
 label[for="file-input"] {

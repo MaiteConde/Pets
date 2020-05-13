@@ -1,10 +1,16 @@
 @import '../../../colors.scss';
 .loginContainer{
+    background-image: url(https://i.pinimg.com/564x/01/43/5b/01435bca4df1cee2816e7dc018f5db03.jpg);
+    background-repeat: no-repeat;
+    background-position: left;
+    // background-position-y: bottom;
+    background-size: contain;
     padding: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70vh;
+    min-height: 90.5vh;
+    height: 100%;
     form{
         display: flex;
         flex-direction: column;
@@ -15,10 +21,6 @@
            
         min-width: 35vw;
         }
-        button{
-            background-color: $Solid;
-            
-            width: 50%;
-        }
+    
     }
 }

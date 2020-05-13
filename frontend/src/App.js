@@ -31,6 +31,7 @@ import { editCat } from './redux/actions/cats';
 import valuation from './containers/user/Valuation/valuation';
 import Footer from './components/Footer/Footer';
 import SearchCat from './containers/pets/cats/SearchCat';
+import SearchDog from './containers/pets/dogs/SearchDog';
 
 function App() {
 
@@ -61,6 +62,8 @@ function App() {
           <Route path='/message/:id' component={Message} />
           <Route path='/geo' component={Geolocation} />
           <Route path='/searchcat/:search' component={SearchCat} />
+          <Route path='/searchdog/:search' component={SearchDog} />
+
 
           <Route exact path='*' component={NotFound} />
          
@@ -71,7 +74,7 @@ function App() {
        <h1>ADOPT<br></br> DONT SHOP</h1> 
        <Button>KNOW MORE</Button>
       </div> */}
-      {/* <Footer/> */}
+      <Footer/>
     </div>
 
     
