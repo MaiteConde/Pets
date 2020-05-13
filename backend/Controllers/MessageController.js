@@ -20,11 +20,14 @@ const MessageController = {
 
             const recibidos = await Message.find({recipient: req.user.id })
             .populate('sender')
-        
+            .populate('recipient')
             const enviados = await Message.find({ sender: req.user.id})
             .populate('sender')
-          
-            res.status(201).send({ recibidos, enviados})
+            .populate('recipient')
+            const recibidosRev = recibidos.reverse()
+            const enviadosRev = enviados.reverse()
+
+            res.status(201).send({ recibidosRev, enviadosRev})
         } catch (error) {
             console.error(error);
             res.status(500).send({ message: 'There was a problem trying to get your messages' })
@@ -38,15 +41,18 @@ const MessageController = {
     async getMessages(req, res) {
         try {
 
-            const recibidos = await Message.find({ sender: req.params.id, recipient: req.user.id })
+            const recibidos = await (await Message.find({ sender: req.params.id, recipient: req.user._id }))
             .populate('sender')
             .populate('recipient')
 
-            const enviados = await Message.find({ sender: req.user.id, recipient: req.params.id })
+            const enviados = await Message.find({ sender: req.user.id, recipient: req.params._id})
             .populate('sender')
             .populate('recipient')
+            const recibidosRev = recibidos.reverse()
+            const enviadossRev = enviadoss.reverse()
+
             // const messages = recibidos.concat(enviados).sort()
-            res.status(201).send({ recibidos, enviados})
+            res.status(201).send(recibidos.reverse())
         } catch (error) {
             console.error(error);
             res.status(500).send({ message: 'There was a problem trying to get your messages' })

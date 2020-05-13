@@ -7,18 +7,14 @@ import {editProfile, getInfo, getMEssages} from '../../../redux/actions/users'
 import { Card } from 'antd';
 import './Messages.scss'
 
-
-
-const Messages = ({message}) => {
+const SendedMessages = ({message}) => {
+   
     useEffect(() => {
         getMEssages()
         
     }, [])
     
-    
-    
     if(!message) return <div class="loader"></div>
-    
     return (
 
         <div className="messages">
@@ -26,16 +22,15 @@ const Messages = ({message}) => {
          
  <div>
   <h2>Received</h2>
-  <h2>Sent</h2>
-     {message?.recibidosRev?.map(function(recibido){
+     {message?.enviados?.map(function(enviado){
          return ( 
             <Card style={{ width: 900 }}>     
 
-  <NavLink to= {`/message/${recibido?._id}`} activeClassName="isActive" exact>
+  <NavLink to= {`/message/${enviado?._id}`} activeClassName="isActive" exact>
       <div className="cardcontent">
-         <div> From: {recibido.sender.name}</div>
-       <div>{recibido?.subject}</div>
-         <div>{recibido?.createdAt}</div>
+         <div>To: {enviado?.recipient?.name}</div>
+       <div>{enviado?.subject}</div>
+         <div>{enviado?.createdAt}</div>
          </div>
     </NavLink>
     
@@ -55,13 +50,12 @@ const Messages = ({message}) => {
             
 </div>
         
-        )}
+        )
+    
+   }
         
       
 
 const mapStateToProps = ({message}) => ({ message:message.messages});
 
-export default connect(mapStateToProps)  (Messages) ;
-
-
-
+export default connect(mapStateToProps)  (SendedMessages) ;

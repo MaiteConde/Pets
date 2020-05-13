@@ -19,7 +19,7 @@ const Dogs = ({message}) => {
     const id = location.pathname.replace('/message/','')
     useEffect(() => {
         getMEssage(id)
-        return () => {clearData()}
+      
     }, [])
 
 const image = `http://localhost:3000/images/dogs/${message?.sender?.image_path}` 
@@ -41,8 +41,7 @@ const image = `http://localhost:3000/images/dogs/${message?.sender?.image_path}`
  <Card style={{ width: 900 }}>   
 
  <div className="messagerec">
- 
-           <div className="name"> <img className="imagepro" src={image} alt=""/><h3>{message?.sender?.name}</h3></div> 
+ <NavLink to={`/user/${message?.sender?._id}`} activeClassName="isActive" exact>   <div className="name"> <img className="imagepro" src={image} alt=""/><h3>{message?.sender?.name}</h3></div> </NavLink>
           <div className="messa"><p>{message?.message}</p></div> 
           <div className="date"><p>{message?.createdAt}</p></div> 
           <ReachableContext.Provider value="Light">

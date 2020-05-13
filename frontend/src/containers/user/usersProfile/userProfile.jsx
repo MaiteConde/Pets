@@ -13,26 +13,27 @@ import ValuForm from '../Valuation/valuation';
 import { Rate } from 'antd';
 
 
-
 const User = ({ userId, cats, dogs}) => {
   const { Panel } = Collapse;
   function callback(key) {
     console.log(key);
-    }
-    let location = useLocation();
-    const id = location.pathname.replace('/user/','')
-    useEffect(() => {
-      // getInfo()
-        getInfoId(id)
-        getCatsUser(id)
-        
-        getDogsUser(id)
-        // return () => {clearData()}
-
-    }, [])
-    if(!userId) return  <div class="loader"></div>
-
-
+  }
+  let location = useLocation();
+  const id = location.pathname.replace('/user/','')
+  useEffect(() => {
+    // getInfo()
+    getInfoId(id)
+    getCatsUser(id)
+    
+    getDogsUser(id)
+    // return () => {clearData()}
+    
+  }, [])
+  if(!userId) return  <div class="loader"></div>
+  
+  const total= userId?.reduce((prev, cur) => prev + cur.valuations.reduce((prev, cur) => prev + cur.points,0),0)/ userId.map((user=>user.valuations.reduce((prev, cur) => prev + 1,0).toFixed(1)))
+  const totalFixed = total.toFixed(1)
+  
     return (
         <div> 
           { 
@@ -89,19 +90,30 @@ const User = ({ userId, cats, dogs}) => {
                     </Panel>
                   </Collapse> 
                 })}
+
                           
                 </div>
                 </div>
+                <Rate allowHalf disabled value = {userId?.reduce((prev, cur) => prev + cur?.valuations?.reduce((prev, cur) => prev + cur?.points,0),0)/ userId.map((user=>user?.valuations?.reduce((prev, cur) => prev + 1,0)))}/>
+             
+              <p> {totalFixed} de 5</p>
+
+
+
+{console.log()}
+
 <h2 className="t">valuations:</h2>
                   {userId?.map(function(user) {
-                     return ( 
-                       user?.valuations.map(valuation => {
+                  
+                    return ( 
+                      user?.valuations.map(valuation => {
                         return ( 
-<div className="valu">
+                          <div className="valu">
                           <h3>{valuation.user.name}</h3>
                         <p>{valuation.valu}</p>
                         
                         <h5>{valuation.date}</h5>
+                     {/* Total price: {products?.reduce((prev, cur) => prev + cur.price,0)?.toFixed(2)}€ */}
                      <Rate disabled value = {valuation?.points}/>
                           </div>
                         )

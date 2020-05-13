@@ -16,14 +16,11 @@ const Header = props => {
  
  <NavLink to='/' activeClassName="isActive" exact>Home</NavLink>
 
-
-
-
-
-       
         {props.user?.user?
             <div className="userZone">
                 <NavLink to='/profile' activeClassName="isActive" exact>{props.user.user.name}</NavLink>
+                <NavLink to='/messages' activeClassName="isActive" exact>Messages</NavLink>
+
                 <span onClick={logout}>Logout</span>
             </div> : <div className="guestZone">
                 <NavLink to='/login' activeClassName="isActive" exact>Login</NavLink>

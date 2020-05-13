@@ -20,6 +20,8 @@ import Home from './containers/Home/Home'
 import Geolocation from './containers/Geolocation/Geolocation'
 import Messages from './containers/user/Messages/Messages'
 import Message from './containers/user/Messages/Message'
+import SentMessages from './containers/user/Messages/SentMessages'
+
 
 
 import NotFound from './containers/Notfound/Notfound';
@@ -55,6 +57,7 @@ function App() {
           <Route path='/adoptions' component={Adoptions} />
           <Route path='/valuation/:id' component={Valuation} />
           <Route path='/messages' component={Messages} />
+          <Route path='/sentmessages' component={SentMessages} />
           <Route path='/message/:id' component={Message} />
           <Route path='/geo' component={Geolocation} />
           <Route path='/searchcat/:search' component={SearchCat} />
