@@ -3,7 +3,6 @@
     background-image: url(https://i.pinimg.com/564x/01/43/5b/01435bca4df1cee2816e7dc018f5db03.jpg);
     background-repeat: no-repeat;
     background-position: left;
-    // background-position-y: bottom;
     background-size: contain;
     padding: 1.5em;
     display: flex;
@@ -24,3 +23,15 @@
     
     }
 }
+
+
+@media (max-width: 600px){
+    .loginContainer {
+        background-position: left;
+        background-size: 10em;
+        background-position-y:top ;
+      display: flex;
+    
+      height: 50%;
+    }
+    }

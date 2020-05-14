@@ -68,3 +68,13 @@ justify-self: flex-end;
     width: 50%;
 
 }
+@media (max-width: 600px) {
+    .catDog{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            height: 9em !important;
+        }
+    }
+}

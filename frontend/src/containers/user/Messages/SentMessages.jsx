@@ -34,18 +34,18 @@ const SendedMessages = ({message}) => {
                       <Menu/>
 
          
- <div>
+ <div className ="divcard">
 
      {message?.enviadosRev?.map(function(enviado){
 
          return ( 
-            <Card style={{ width: 900 }}>     
+            <Card >     
 
   <NavLink to= {`/message/${enviado?._id}`} activeClassName="isActive" exact>
       <div className="cardcontent">
          <div>To: {enviado?.recipient?.name}</div>
        <div>{enviado?.subject}</div>
-         <div>{enviado?.createdAt}</div>
+         <div className="daate">{enviado?.createdAt}</div>
          </div>
     </NavLink>
     

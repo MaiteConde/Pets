@@ -24,4 +24,17 @@
     }
 }
 
+@media (max-width: 600px) {
+    .ant-input-group > .ant-input:first-child, .ant-input-group-addon:first-child {
+        width: 100% !important;
+
+    }
+    .containersearchDog {
+        border-top-left-radius: 5em !important;
+        border-top-right-radius: 5em !important;
+                
+    }
+
+}
+
 

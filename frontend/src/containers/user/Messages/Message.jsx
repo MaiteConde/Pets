@@ -37,6 +37,7 @@ const image = `http://localhost:3000/images/dogs/${message?.sender?.image_path}`
         ),
       };
     return (
+      <div className="cont">
         <div className="message">
  <Card style={{ width: 900 }}>   
 
@@ -54,6 +55,7 @@ const image = `http://localhost:3000/images/dogs/${message?.sender?.image_path}`
            </div>  
            
            </Card>
+           </div>
            </div>
     )
 }

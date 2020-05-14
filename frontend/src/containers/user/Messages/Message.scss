@@ -3,6 +3,8 @@
 .message {
  display: flex;
  justify-content: center;
+ 
+ 
     .messagerec {
         display: flex;
         flex-direction: column;
@@ -48,4 +50,8 @@
     display: flex;
     justify-content: center;
     float: none;
+}
+
+.cont {
+    min-height: 75.5vh;
 }

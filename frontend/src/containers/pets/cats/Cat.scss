@@ -88,4 +88,22 @@ a {
 }
 }
 
-                      
+@media (max-width: 600px){
+  .full{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  .catData{
+    display: flex;
+    width: 90% !important;
+    .history{
+      width: 100%;
+    }
+  }
+  .infoC{
+    width: 80%;
+  }
+ 
+}            

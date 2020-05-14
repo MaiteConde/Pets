@@ -79,4 +79,27 @@ h1 {
         justify-content: center;
     }
 
-    
+    @media (max-width: 600px) {
+        .headerDog {
+            width: 100%;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+            
+         h1 {
+             font-size: larger; 
+         }
+     
+        }
+        .buttonCon{
+            font-size: smaller;
+            width: 100%;
+            .contents {
+                width: 100%;
+            }
+        }
+        .petInfo {
+           display: flex;
+           flex-direction: column;
+        }
+       
+    }
