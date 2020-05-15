@@ -68,7 +68,6 @@ const Put = ({user}) => {
              <h4>Info:</h4> <TextField type="text" label={user?.userInfo}  name="userInfo" />
             
                
-
                 <Button type="submit" class="bubbly-button">
                     Edit
                 </Button>

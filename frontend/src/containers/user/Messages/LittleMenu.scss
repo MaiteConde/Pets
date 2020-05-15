@@ -1,19 +1,26 @@
 @import '../../../colors.scss';
 
 .littlemenu{
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 10em 0 0;
+    padding: 0 2em 0 0;
     // border-right: solid black;
     
-    a{
-        padding: 6em 0;
-        font-size: larger;
+    ul {
+        display: flex;
+        flex-direction: column;
+        padding: 3em;
     }
     .isActive {
         text-decoration: underline;
         color: $Solid;
     }
 }
+ li{
+     padding: 3em 0;
+    list-style: none;
+    font-size: larger;
+  }
 

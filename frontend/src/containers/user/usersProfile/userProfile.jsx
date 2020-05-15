@@ -38,17 +38,17 @@ const User = ({ userId, cats, dogs}) => {
         <div> 
           { 
      userId?.map(function(user) {
-        const image = `http://localhost:3000/images/dogs/${user?.image_path}`;
+      const image = `http://localhost:3000/images/dogs/${user?.image_path}`;
         
-
          return ( 
 
     <div className="user" key={user._id}>
     
         <img  className="profilePhoto" src={image} alt=""/>
     
-     <p>{user.name}</p>
+     <h2>{user.name}</h2>
     <p>{user.email}</p>
+         <p>{user.userInfo}</p>
 
   </div>
   
@@ -100,13 +100,13 @@ const User = ({ userId, cats, dogs}) => {
 
 
 
-{console.log()}
+
 
 <h2 className="t">valuations:</h2>
+                 
                   {userId?.map(function(user) {
-                  
                     return ( 
-                      user?.valuations.map(valuation => {
+                      user?.valuations?.reverse().map(valuation => {
                         return ( 
                           <div className="valu">
                           <h3>{valuation.user.name}</h3>

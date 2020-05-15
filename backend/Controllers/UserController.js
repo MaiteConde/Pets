@@ -51,36 +51,6 @@ const UserController = {
         }
     },
 
-
-    // async stars(req, res) {
-    //     try {
-             
-    //         await User.findByIdAndUpdate(req.params._id, {
-    //             $push: {
-    //                 stars: {user: req.user._id, value:req.body.value, avgQuantity: User.aggregate ( [
-    //                     {
-    //                       $group:
-    //                         {
-    //                           _id: "$stars",
-    //                         //   avgAmount: { $avg: { $multiply: [ "$price", "$quantity" ] } },
-    //                           avgQuantity: { $avg: "$value" }
-    //                         }
-    //                     }
-    //                   ])}   
-    //             } 
-    //         });
-            
-            
-    //         res.send('ok')
-    //     } catch (error) {
-    //         console.log(error);
-    //         res.status(500).send({
-    //             message: 'There was a problem trying to follow'
-    //         })
-    //     }
-    // },
-
-
     async login(req, res) {
         try {
             const user = await User.findOne({
@@ -126,11 +96,10 @@ const UserController = {
             })
     },
 
-    update(req, res) { //new es para que devuelva el registro actualizado, por defecto es false por lo que la promesa se resuelve con el registro sin actualizar
+    update(req, res) { 
         if (req.file) req.body.image_path = req.file.filename;
         if(req.comments) comments.user = req.user._id;
-        User.findByIdAndUpdate(req.user._id, req.body, { new: true }) // mongoose method which uses the findOneAndUpdate()
-            // Publication.findOneAndUpdate({_id:req.params._id} ) // Mongodb method
+        User.findByIdAndUpdate(req.user._id, req.body, { new: true }) 
             .then(user => res.send({ message: 'profile successfully updated', user }))
             .catch(console.error)
     },
@@ -150,7 +119,7 @@ const UserController = {
         
         try {
             const _id = req.params._id
-            await User.findByIdAndDelete(_id) // mongoose method which uses the findOneAndDelete()
+            await User.findByIdAndDelete(_id) 
             res.send({ message: 'user deleted' })
         
         } catch (error) {

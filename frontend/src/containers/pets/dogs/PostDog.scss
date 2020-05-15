@@ -30,3 +30,30 @@
     }
 }
 
+[type="file"]+label {
+    margin: 5px;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #9A48E8;
+    border-color: #d9d9d9;
+}
+
+[type="file"]+label :hover {
+    transition: 1s;
+    color: white;
+    background: #9A48E8;
+}
+
+[type="file"] {
+    margin: 5px;
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}

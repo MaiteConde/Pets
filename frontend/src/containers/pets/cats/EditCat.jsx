@@ -42,6 +42,7 @@ const Put = props => {
                 <TextField type="text"  label="age" name="age" placeholder="cats age" />
                 <TextField type="text"  label="history" name="history" placeholder="cats history" />
                 <TextField type="text"  label="location" name="location" placeholder="catslocation" />
+            
 
                 <input type="file"  name="image" id="file-input"/> 
                 <Button type="submit" variant="contained" color="primary">

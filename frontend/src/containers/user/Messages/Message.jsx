@@ -46,9 +46,9 @@ const image = `http://localhost:3000/images/dogs/${message?.sender?.image_path}`
           <div className="messa"><p>{message?.message}</p></div> 
           <div className="date"><p>{message?.createdAt}</p></div> 
           <ReachableContext.Provider value="Light">
-      <Button onClick={() => {modal.info(config)}}>
+      <button class="bubbly-button"   onClick={() => {modal.info(config)}}>
         Respond
-      </Button>
+      </button>
       {contextHolder}
       <UnreachableContext.Provider value="Bamboo" />
     </ReachableContext.Provider>

@@ -47,10 +47,10 @@ const Post = props => {
                 <TextField type="text" required label="age" name="age" placeholder="cats age" />
                 <TextField type="text" required label="history" name="history" placeholder="cats history" />
                 <TextField type="text" required label="location" name="location" placeholder="catslocation" />
+                <label for="file" class="bubbly-button"><span>Select Image</span></label>
+                <input type="file" required name="image" id="file"/> 
 
-                <input type="file" required name="image" id="file-input"/> 
-
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" class="bubbly-button">
                     Send
                 </Button>
             </form>

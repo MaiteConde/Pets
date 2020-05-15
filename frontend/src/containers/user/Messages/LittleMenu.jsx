@@ -8,10 +8,14 @@ import './LittleMenu.scss'
 
 const Menu = ({cats, provincias}) => {
       
-    return <menu className="littlemenu" >
- 
-                   <NavLink to='/messages' activeClassName="isActive" exact>Received</NavLink>
-                   <NavLink to='/sentmessages' activeClassName="isActive" exact>Sent</NavLink>
+    return <menu  >
+        <div>
+            <ul>
+                <li> <NavLink to='/messages' activeClassName="isActive" exact>Received</NavLink></li>
+                <li>  <NavLink to='/sentmessages' activeClassName="isActive" exact>Sent</NavLink></li>
+            </ul>
+            </div>
+                 
    
                    
        </menu>
