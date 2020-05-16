@@ -32,6 +32,7 @@ import valuation from './containers/user/Valuation/valuation';
 import Footer from './components/Footer/Footer';
 import SearchCat from './containers/pets/cats/SearchCat';
 import SearchDog from './containers/pets/dogs/SearchDog';
+import Switches from './containers/pets/Switch';
 
 function App() {
 
@@ -63,6 +64,7 @@ function App() {
           <Route path='/geo' component={Geolocation} />
           <Route path='/searchcat/:search' component={SearchCat} />
           <Route path='/searchdog/:search' component={SearchDog} />
+          <Route path='/switch' component={Switches} />
 
 
           <Route exact path='*' component={NotFound} />

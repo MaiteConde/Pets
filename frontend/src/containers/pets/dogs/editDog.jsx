@@ -5,6 +5,9 @@ import { useLocation } from 'react-router-dom'
 import {  notification } from 'antd';
 import { postDog, editDog } from '../../../redux/actions/dogs';
 import './PostDog.scss' 
+import Switches from '../Switch';
+import { connect } from 'react-redux';
+
 
 
 const Put = props => {
@@ -21,11 +24,14 @@ const Put = props => {
         if (event.target.age.value[0]) formData.set('age', event.target.age.value)
         if (event.target.history.value[0]) formData.set('history', event.target.history.value)
         if (event.target.location.value[0]) formData.set('location', event.target.location.value)
-
+        formData.set('adopted', props.adopted)
+        
         editDog(formData, id)
         .then(dog => {
+            console.log(dog)
             notification.success({message:'Edited'})
             setTimeout(() => {
+                localStorage.removeItem('adopted')
                 props.history.push('/profile')
             }, 2000);
         })
@@ -43,6 +49,7 @@ const Put = props => {
                 <TextField type="text" label="age" name="age" placeholder="dogs age" />
                 <TextField type="text" label="history" name="history" placeholder="dogs history" />
                 <TextField type="text"  label="location" name="location" placeholder="catslocation" />
+               <Switches />
                 <input type="file"  name="image" id="file-input"/>
 
                 <Button type="submit" variant="contained" color="primary">
@@ -53,4 +60,5 @@ const Put = props => {
     )
 }
 
-export default Put
+const mapStateToProps = ({cat}) =>({adopted:cat?.catadopted});
+export default connect(mapStateToProps)  (Put);

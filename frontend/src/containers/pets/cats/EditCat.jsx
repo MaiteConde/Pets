@@ -2,15 +2,19 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useLocation } from 'react-router-dom'
+import { connect } from 'react-redux';
+
 import {  notification } from 'antd';
 import { editCat } from '../../../redux/actions/cats';
 import './PostCat.scss' 
+import Switches from '../Switch';
 
 
 const Put = props => {
     let location = useLocation();
     const id = location.pathname.replace('/editCat/','')
-    console.log(id)
+    console.log(props.adopted)
+   
     const handle = event => {
         event.preventDefault();
         const formData = new FormData();
@@ -21,6 +25,7 @@ const Put = props => {
         if (event.target.age.value[0]) formData.set('age', event.target.age.value)
         if (event.target.history.value[0]) formData.set('history', event.target.history.value)
         if (event.target.location.value[0]) formData.set('location', event.target.location.value)
+        formData.set('adopted', props.adopted)
         editCat(formData, id)
         .then(cat => {
             notification.success({message:'Edited'})
@@ -42,9 +47,9 @@ const Put = props => {
                 <TextField type="text"  label="age" name="age" placeholder="cats age" />
                 <TextField type="text"  label="history" name="history" placeholder="cats history" />
                 <TextField type="text"  label="location" name="location" placeholder="catslocation" />
-            
 
                 <input type="file"  name="image" id="file-input"/> 
+                <Switches/>
                 <Button type="submit" variant="contained" color="primary">
                     Send
                 </Button>
@@ -53,4 +58,5 @@ const Put = props => {
     )
 }
 
-export default Put
+const mapStateToProps = ({cat}) =>({adopted:cat?.catadopted});
+export default connect(mapStateToProps)  (Put);

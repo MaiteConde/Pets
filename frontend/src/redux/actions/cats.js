@@ -102,6 +102,15 @@ export const postCat = async (formData) => {
      
     }
 
+    
+    export const adoptedCat = async (state) => {
+        store.dispatch({
+            type: 'CAT_ADOPTED',
+            payload: state.checkedA
+          
+        })
+      };
+
           export const clearData = () => {
             store.dispatch({
                 type: 'CLEAR'

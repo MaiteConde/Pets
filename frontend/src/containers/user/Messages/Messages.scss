@@ -20,24 +20,27 @@
     }
 }
 
-.empty {
+// .empty {
   
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 52em;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     width: 50em;
    
-}
+// }
+
+// .extramenu{
+//     display: flex;
+//     justify-content: space-evenly;
+//     height: 75.5%;
+// }
 
 .divcard{
     height: 30em;
     overflow: auto;
-    width: 50em;
+    width: 70em;
 }
-// ::-webkit-scrollbar-thumb {
-//     box-shadow: inset 0 0 5px grey; 
-//     border-radius: 10px;
-// }
+
 
 ::-webkit-scrollbar {
     border: rgb(182, 219, 211) solid; 

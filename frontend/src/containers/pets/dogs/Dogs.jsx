@@ -6,11 +6,13 @@ import { NavLink } from 'react-router-dom';
 import { Card } from 'antd';
 import InSearchDog from './InputDog';
 import { clearData, getInfo } from '../../../redux/actions/users';
+import { citys } from '../../../redux/actions/locations';
 
 
 const Dogs = props => {
     useEffect(() => {
         getAllDogs()
+        citys()
         return () => {clearData(); getInfo()}
     }, [])
 

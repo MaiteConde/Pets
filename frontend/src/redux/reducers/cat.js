@@ -17,6 +17,11 @@ const catReducer = (state = {}, action) => {
                             ...state,
                             catSearch: action.payload
                         }
+                case 'CAT_ADOPTED':
+                     return{
+                            ...state,
+                      catadopted: action.payload
+                                }
                 case 'CLEAR':
                     return{
                         state: undefined

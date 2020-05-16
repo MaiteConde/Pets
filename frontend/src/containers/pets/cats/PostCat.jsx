@@ -3,21 +3,24 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {  notification, Calendar } from 'antd';
 import { postCat } from '../../../redux/actions/cats';
-import { DatePicker } from 'antd';
+import { connect } from 'react-redux';
+import {useHistory} from 'react-router-dom'
 
 
 import './PostCat.scss' 
+import SimpleSelect from '../Select';
 
 
 
-const Post = props => {
+const Post = ({dog}) => {
+    const history = useHistory();
    
     const handle = event => {
         event.preventDefault();
         const formData = new FormData();
         if (event.target.image.files[0])  formData.set('image', event.target.image.files[0]);
         formData.set('name', event.target.name.value)
-        formData.set('sex', event.target.sex.value)
+        formData.set('sex', dog)
         formData.set('breed', event.target.breed.value)
         formData.set('age', event.target.age.value)
         formData.set('history', event.target.history.value)
@@ -30,7 +33,7 @@ const Post = props => {
             
             notification.success({message:'Thank you! We hope your cat find a family soon'})
             setTimeout(() => {
-                props.history.push('/profile')
+                history.push('/profile')
             }, 2000);
         })
         .catch((error)=>{
@@ -47,6 +50,8 @@ const Post = props => {
                 <TextField type="text" required label="age" name="age" placeholder="cats age" />
                 <TextField type="text" required label="history" name="history" placeholder="cats history" />
                 <TextField type="text" required label="location" name="location" placeholder="catslocation" />
+                <SimpleSelect />
+
                 <label for="file" class="bubbly-button"><span>Select Image</span></label>
                 <input type="file" required name="image" id="file"/> 
 
@@ -59,4 +64,5 @@ const Post = props => {
     )
 }
 
-export default Post
+const mapStateToProps = ({dog}) =>({dog:dog.sex});
+export default connect(mapStateToProps)  (Post);

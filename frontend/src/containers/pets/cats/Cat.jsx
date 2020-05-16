@@ -27,7 +27,9 @@ const Cat = ({ cat, user}) => {
           <Menu.Item key="1">
           <span  onClick={() => {deleteCat(id);  setTimeout(() => {
  history.push('/cats')
-}, 1000); }}> <img className ="iconImage" src="https://image.flaticon.com/icons/png/512/70/70757.png" alt=""/> Delete</span>
+}, 1000); }}> 
+
+<img className ="iconImage" src="https://image.flaticon.com/icons/png/512/70/70757.png" alt=""/> Delete</span>
           </Menu.Item>
         </Menu>
       );
@@ -62,7 +64,9 @@ const Cat = ({ cat, user}) => {
 
             <h2>Info:</h2>
 <div className="infoC">
-                     <span> <h3> <img src="https://image.flaticon.com/icons/png/512/87/87221.png" alt=""/> Sex:</h3>  <br/> {cat?.sex}</span>
+            { cat?.sex === 'Female'?
+                     <span> <h3> <img src="https://image.flaticon.com/icons/png/512/100/100494.png" alt=""/> Sex:</h3>  <br/> {cat?.sex}</span>:  <span> <h3> <img src="https://image.flaticon.com/icons/png/512/14/14694.png" alt=""/> Sex:</h3>  <br/> {cat?.sex}</span>}
+                    
 
                     <span> <h3> <img src="https://image.flaticon.com/icons/png/512/113/113099.png" alt=""/> Age: </h3><br/> {cat?.age}</span>
 
@@ -77,7 +81,7 @@ const Cat = ({ cat, user}) => {
 
 
 
-
+          { cat?.adopted === false ?
                 <div className="contact">
                     <div className="adopt">
                         <h2>ADOPT</h2>
@@ -88,7 +92,13 @@ const Cat = ({ cat, user}) => {
                 <MessageCat/>
                     </div>
    
+                </div>: <div className="adopted">
+                    <h1>This cat has already been adopted!</h1>
+                    <img src="https://i.pinimg.com/564x/cf/43/21/cf4321426c8c5fca866e9fe07faee8fd.jpg" alt=""/>
+                    <h1>Thank you so much!</h1>
+
                 </div>
+                }
 
         </div>
     )

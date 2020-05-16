@@ -96,9 +96,10 @@ const User = ({ userId, cats, dogs}) => {
                 </div>
                 <Rate allowHalf disabled value = {userId?.reduce((prev, cur) => prev + cur?.valuations?.reduce((prev, cur) => prev + cur?.points,0),0)/ userId.map((user=>user?.valuations?.reduce((prev, cur) => prev + 1,0)))}/>
              
-              <p> {totalFixed} de 5</p>
+             {totalFixed >= 0?
+              <p> {totalFixed} de 5</p>: ''
 
-
+}
 
 
 

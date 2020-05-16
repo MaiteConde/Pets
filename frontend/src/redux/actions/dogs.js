@@ -100,6 +100,14 @@ export const postDog = async (formData) => {
                 }
              
             }
+
+            export const sexPet = async (sex) => {
+                store.dispatch({
+                    type: 'SEX_PET',
+                    payload: sex
+                  
+                })
+              };
   
           export const clearData = () => {
             store.dispatch({

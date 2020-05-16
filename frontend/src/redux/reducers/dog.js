@@ -17,6 +17,12 @@ const dogReducer = (state = {}, action) => {
                         ...state,
                         dogSearch: action.payload
                     }
+                    case 'SEX_PET':
+                        return{
+                                ...state,
+                                sex: action.payload
+                            }
+                    
             case 'CLEAR':
                 return{
                     state: undefined

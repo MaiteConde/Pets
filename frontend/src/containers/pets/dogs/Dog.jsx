@@ -17,7 +17,7 @@ const Dog = ({ dog, user }) => {
     const id = location.pathname.replace('/dog/','')
     useEffect(() => {
         getDogId(id)
-        return () => {clearData()}
+        return () => {clearData(); getInfo()}
     }, [])
 
     const menu = (
@@ -61,8 +61,10 @@ if(!dog) return <div class="loader"></div>
 
 <h2>Info:</h2>
 <div className="infoC">
-         <span> <h3> <img src="https://image.flaticon.com/icons/png/512/87/87221.png" alt=""/> Sex:</h3>  <br/> {dog?.sex}</span>
-         {/* <span> <h3>HIstory:</h3>  <br/> {dog?.history}</span> */}
+{dog?.sex == 'Female'?
+         <span> <h3> <img src="https://image.flaticon.com/icons/png/512/100/100494.png" alt=""/> Sex:</h3>  <br/> {dog?.sex}</span>:
+        <span> <h3> <img src="https://image.flaticon.com/icons/png/512/14/14694.png" alt=""/> Sex:</h3>  <br/> {dog?.sex}</span>
+}
         <span> <h3> <img src="https://image.flaticon.com/icons/png/512/113/113099.png" alt=""/> Age: </h3><br/> {dog?.age}</span>
 
         <span> <h3> <img src="https://image.flaticon.com/icons/png/512/52/52177.png" alt=""/> Location: </h3><br/> {dog?.location}</span>
@@ -71,6 +73,8 @@ if(!dog) return <div class="loader"></div>
         <span className="history"> <h3> <img className = "icon" src="https://image.flaticon.com/icons/png/512/23/23401.png" alt=""/> History: </h3><br/> {dog?.history}</span>
 
                 </div>
+
+                {dog?.adopted === false? 
                 <div className="contact">
                     <div className="adopt">
                         <h2>ADOPT</h2>
@@ -80,7 +84,13 @@ if(!dog) return <div class="loader"></div>
                 <MessageDog/>
                     </div>
    
-                </div> 
+                </div> :  <div className="adopted">
+                    <h1>This dog has already been adopted!</h1>
+                    <img src="https://i.pinimg.com/564x/d8/4a/88/d84a88bf0049913350c2bdbfa42191b8.jpg" alt=""/>
+                    <h1>Thank you so much!</h1>
+
+                </div>
+                }
         </div>
     )
 }

@@ -1,0 +1,15 @@
+@import '../../colors.scss';
+
+
+.MuiSwitch-colorSecondary.Mui-checked {
+    color: white !important; 
+}
+.MuiSwitch-switchBase {
+    color: $Solid !important;
+}
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+    background-color: gray !important;
+}
+.MuiSwitch-track {
+    background-color: $Solid !important;
+}
