@@ -5,7 +5,9 @@ import { NavLink } from 'react-router-dom';
 import { Card } from 'antd';
 import { getMEssage, clearData } from '../../../redux/actions/users';
 import './Message.scss'
-import { Modal, Button } from 'antd';
+import Moment from 'react-moment';
+import 'moment-timezone';
+import { Modal} from 'antd';
 import MessageResponse from '../Messages/ResponseMessage'
 
 const ReachableContext = React.createContext();
@@ -44,7 +46,7 @@ const image = `http://localhost:3000/images/dogs/${message?.sender?.image_path}`
  <div className="messagerec">
  <NavLink to={`/user/${message?.sender?._id}`} activeClassName="isActive" exact>   <div className="name"> <img className="imagepro" src={image} alt=""/><h3>{message?.sender?.name}</h3></div> </NavLink>
           <div className="messa"><p>{message?.message}</p></div> 
-          <div className="date"><p>{message?.createdAt}</p></div> 
+          <div className="date">  <Moment format="YYYY/MM/DD">{message?.createdAt}</Moment> </div> 
           <ReachableContext.Provider value="Light">
       <button class="bubbly-button"   onClick={() => {modal.info(config)}}>
         Respond

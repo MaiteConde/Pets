@@ -8,9 +8,12 @@ import {  notification } from 'antd';
 import { editCat } from '../../../redux/actions/cats';
 import './PostCat.scss' 
 import Switches from '../Switch';
+import {useHistory} from 'react-router-dom';
+
 
 
 const Put = ({adopted, dog}) => {
+    const history = useHistory();
     let location = useLocation();
     const id = location.pathname.replace('/editCat/','')
     
@@ -29,9 +32,9 @@ const Put = ({adopted, dog}) => {
         editCat(formData, id)
         .then(cat => {
             notification.success({message:'Edited'})
-            // setTimeout(() => {
-            //     props.history.push('/profile')
-            // }, 2000);
+            setTimeout(() => {
+                history.push('/profile')
+            }, 2000);
         })
         .catch((error)=>{
            console.error(error)

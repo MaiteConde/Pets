@@ -15,6 +15,8 @@ const DogSearch = ({dogSearch}) => {
         getDogSearch(search)
     }, [])
     if(!dogSearch) return <div class="loader"></div>
+    if (dogSearch.length <= 0) return <div className="notFound"><img src="https://i.pinimg.com/564x/71/20/bd/7120bdf17b5bf079cacd62ecaf20670c.jpg" alt=""/>
+    <h1>No results</h1></div>
     return (
 <Fragment>
     <div className="dogs">

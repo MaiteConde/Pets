@@ -1,24 +1,20 @@
-.dogos {
-    display: flex;
-    flex-wrap: wrap;
-    // height: 100%;
-    // background-image: url('https://i.pinimg.com/564x/04/b6/14/04b61445914c10b0c5bd149ed29fbf10.jpg');
-    // background-position-x: right;
-    // background-position-y: bottom;
-    // background-repeat: no-repeat;
+.dogs {
+    min-height: 75.5vh;
 }
         button {
             width: 2em;
         }
 .dogo {
     margin: 2em;
+    
 }
 
 @media (max-width: 600px){
 
-}.cats {
+}
+.dogs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+     
 }
 

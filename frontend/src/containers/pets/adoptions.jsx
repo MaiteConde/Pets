@@ -22,7 +22,7 @@ const Adoptions = ({ user, cats, dogs }) => {
 
     return (
                 <div className="userData">
-                  <div className="buttons">
+                    <div className="buttons">
                   <NavLink to='/postCat' activeClassName="isActive" exact>    <Button class="bubbly-button"  >
                 I have a cat that need a family
                 </Button></NavLink>
@@ -88,6 +88,7 @@ const Adoptions = ({ user, cats, dogs }) => {
               
                 </div>
                 </div>
+                
                 </div>
                 
 

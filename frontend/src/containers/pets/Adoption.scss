@@ -1,5 +1,5 @@
 .userData {
-    height: 100%;
+    // height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,15 +7,16 @@
         margin: 1em !important;
     }
 }
-.mypets{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+// .mypets{
+//     display: flex;
+//     // flex-wrap: wrap;
+//     justify-content: center;
+// }
 .dog {
    display: flex;
    flex-wrap: wrap;
-   align-items: center;
+//    align-items: center;
+   justify-content:center;
     width: 50%;
     
     
@@ -23,7 +24,9 @@
 .cat {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content:center;
+
+    // align-items: center;
     width: 50%;
 
 }

@@ -40,7 +40,9 @@
   }
 
   .adopt {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 25em;
     padding: 3em;
     background-color:whitesmoke;
@@ -64,14 +66,16 @@
     align-items: center;
     justify-content: center;
     span {
-      cursor: pointer;
+    
       padding: 5em;
       color: inherit;
     }
     a {
       all: unset;
     }
-    cursor: pointer;
+    .anticon svg {
+      cursor: pointer;
+    }
   }
   .iconImage {
     height: 1em !important;

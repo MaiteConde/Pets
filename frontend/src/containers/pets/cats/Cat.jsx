@@ -83,14 +83,15 @@ const Cat = ({ cat, user}) => {
 
           { cat?.adopted === false ?
                 <div className="contact">
+                       {cat?.user._id !== user?._id ?
                     <div className="adopt">
                         <h2>ADOPT</h2>
                 <p>If you are insterested in this pet, you can contact with the actual owner:</p>
                    < NavLink to= {`/user/${cat?.user?._id}`} activeClassName="isActive" exact>{cat?.user.name}</NavLink>
 
-
-                <MessageCat/>
-                    </div>
+                    {user?._id ? 
+                <MessageCat/>: <h3> You have to be logged in to contact</h3>}
+                    </div>: <div><img src="https://image.flaticon.com/icons/png/512/98/98755.png" alt=""/><h3>You are the author of this publication</h3> </div> }
    
                 </div>: <div className="adopted">
                     <h1>This cat has already been adopted!</h1>

@@ -5,7 +5,7 @@ margin: 2em
 .cats {
     display: flex;
     flex-wrap: wrap;
-    height: 100%;
+    min-height: 75.5vh;
 }
 
 .ant-card-body {

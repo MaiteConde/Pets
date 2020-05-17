@@ -15,6 +15,8 @@ const CatSearch = ({catSearch}) => {
         getCatSearch(search)
     }, [])
     if(!catSearch) return <div class="loader"></div>
+    if (catSearch.length <= 0) return <div className="notFound"><img src="https://i.pinimg.com/564x/ce/95/2f/ce952f60cfccec03b5bcb394a9b54364.jpg" alt=""/>
+    <h1>No results</h1></div>
     return (
 <Fragment>
     <div className="cats">

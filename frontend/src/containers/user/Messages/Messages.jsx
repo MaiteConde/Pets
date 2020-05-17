@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import { Button} from '@material-ui/core';
+import Moment from 'react-moment';
+import 'moment-timezone';
 import {editProfile, getInfo, getMEssages} from '../../../redux/actions/users'
 import { Card } from 'antd';
 import Menu from './LittleMenu'
@@ -50,7 +50,7 @@ const Messages = ({message}) => {
       <div className="cardcontent">
          <div> From: {recibido.sender.name}</div>
        <div>{recibido?.subject}</div>
-         <div className="daate">{recibido?.createdAt}</div>
+         <div className="daate">  <Moment format="YYYY/MM/DD">{recibido?.createdAt}</Moment></div>
          </div>
     </NavLink>
     

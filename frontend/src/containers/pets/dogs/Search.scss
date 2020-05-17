@@ -10,9 +10,10 @@
     background-position-y: center;
     background-size: cover;
     margin-bottom: 10em;
+    margin: 1em 0;
     .ant-input-search-enter-button + .ant-input-group-addon, .ant-input-search-enter-button input + .ant-input-group-addon {
         opacity: 0;
-        
+
 
     }
     

@@ -1,38 +1,40 @@
 @import '../../../colors.scss';
 
-.catDog{
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 5em 0;
+.mypets{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-        .profilePhoto {
+// .dog {
+//    display: flex;
+//    flex-wrap: wrap;
+//    align-items: center;
+// //    justify-content: center;
+//     width: 50%;
+
+
+// }
+// .cat {
+//     display: flex;
+//     flex-wrap: wrap;
+//     align-items: center;
+//     justify-content: center;
+//     width: 50%;
+
+// }
+    .profilePhoto {
             width: 15em;
             height: 15em !important;
             border-radius: 50%;
         }
 
-.ant-card-body {
-height: 8em;
+.catP{
+    display: flex;
 }
-
-.ant-collapse > .ant-collapse-item > .ant-collapse-header {
-    width: 25em;
-}
-
-.ant-collapse > .ant-collapse-item {
-    width: 25em;
-
-}
-.ant-collapse {
-    width: 25em;
-
-}
-
 
 .valu{
 display: flex;
-flex-direction: column;  
+flex-direction: column;
 background-color: $gray;
 border-left: 3px black solid;
 margin: 2em;
@@ -45,7 +47,59 @@ align-self: flex-end;
 justify-self: flex-end;
 }
 }
-  
+
+    .t{
+        text-align: left;
+        margin: 1.5em;
+    }
+
+.catP{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20em;
+    margin: 2em;
+    width: 50%;
+}
+
+.dogP{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20em;
+    margin: 2em;
+    width: 50%;
+
+}
+@media (max-width: 600px) {
+    .catDog{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            height: 9em !important;
+        }
+    }
+}
+
+
+
+        .ant-card-body {
+        height: 8em;
+        }
+
+        .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+            width: 25em;
+        }
+
+        .ant-collapse > .ant-collapse-item {
+            width: 25em;
+
+        }
+        .ant-collapse {
+            width: 25em;
+
+        }
     .t{
         text-align: left;
         margin: 1.5em;

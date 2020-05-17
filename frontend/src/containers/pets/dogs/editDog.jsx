@@ -8,10 +8,13 @@ import './PostDog.scss'
 import Switches from '../Switch';
 import { connect } from 'react-redux';
 import SimpleSelect from '../Select';
+import {useHistory} from 'react-router-dom';
+
 
 
 
 const Put = ({adopted, dog}) => {
+    const history = useHistory();
     let location = useLocation();
     const id = location.pathname.replace('/editDog/','')
     console.log(id)
@@ -31,10 +34,10 @@ const Put = ({adopted, dog}) => {
         .then(dog => {
             console.log(dog)
             notification.success({message:'Edited'})
-            // setTimeout(() => {
-            //     localStorage.removeItem('adopted')
-            //     history.push('/profile')
-            // }, 2000);
+            setTimeout(() => {
+                localStorage.removeItem('adopted')
+                history.push('/profile')
+            }, 2000);
         })
         .catch((error)=>{
             console.error(error)

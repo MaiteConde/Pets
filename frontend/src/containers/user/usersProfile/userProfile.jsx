@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 import { getInfoId, getInfo, clearData, giveValuation } from '../../../redux/actions/users';
 import {getCatsUser } from '../../../redux/actions/cats';
 import './userProfile.scss'
-import Button from '@material-ui/core/Button';
-
+import Moment from 'react-moment';
+import 'moment-timezone';
 import { getDogsUser } from '../../../redux/actions/dogs';
 import { Card } from 'antd';
 import { Collapse } from 'antd';
@@ -14,12 +14,8 @@ import ValuForm from '../Valuation/valuation';
 import { Rate } from 'antd';
 
 
-const User = ({ userId, cats, dogs}) => {
+const User = ({ userId, cats, dogs, myuser}) => {
 
-  const { Panel } = Collapse;
-  function callback(key) {
-    console.log(key);
-  }
   let location = useLocation();
   const id = location.pathname.replace('/user/','')
   let show = false
@@ -27,7 +23,6 @@ const User = ({ userId, cats, dogs}) => {
     
     getInfoId(id)
     getCatsUser(id)
-    
     getDogsUser(id)
     // return () => {clearData()}
     
@@ -53,61 +48,78 @@ const User = ({ userId, cats, dogs}) => {
      <h2>{user.name}</h2>
     <p>{user.email}</p>
          <p>{user.userInfo}</p>
+         <Rate allowHalf disabled value = {userId?.reduce((prev, cur) => prev + cur?.valuations?.reduce((prev, cur) => prev + cur?.points,0),0)/ userId.map((user=>user?.valuations?.reduce((prev, cur) => prev + 1,0)))}/>
+             
+             {totalFixed >= 0?
+              <p> {totalFixed} de 5</p>: ''
 
+}
   </div>
   
   )
 
             })
         }
-<Button onClick={() => show = true}>click!</Button>
-<Button onClick = {() =>console.log(show) }>click!</Button>
 
-
-         {show == true? 
-        <div className="catDog">
-                <div className="catP">
-            <h2>Cat publications</h2>
+<div className="mypets">
+                <div className="cat">
 
                 { cats?.map(function(cato) {
-                  
-                  
-                  return  <div className="caat">
-                  <Collapse defaultActiveKey={['1']} onChange={callback}>
-                  
-                  <Panel header= {cato.name} key="0">
+                    return(
                       <NavLink to= {`/cat/${cato._id}`} activeClassName="isActive" exact>
-                    <img alt="example" src={`http://localhost:3000/images/cats/${cato.image_path}`} />
-                    </NavLink>
-                  </Panel>
-                </Collapse> 
-                </div>
-                })}
 
+                      <Card className="cato" key={cato._id}
+                      hoverable
+                      style={{ width: 240 }}
+                      cover={<img alt="example" src={`http://localhost:3000/images/cats/${cato.image_path}`} />}
+                      >
+                       <p>{cato.name}</p>
+                           <p>{cato.location}</p>
+                       
+                              
+                    </Card>
+                    
+                  
+                    </NavLink>
+  
+      )
+      
+
+
+                })}
+  
                 </div>
-                <div className="dogP">
-                <h2>Dog publications</h2>
+                <div className ="dog">
 
                 { dogs?.map(function(dogo) {
-                    return  <Collapse defaultActiveKey={['1']} onChange={callback}>
-                  
-                    <Panel header= {dogo.name} key="0">
-                        <NavLink to= {`/dog/${dogo._id}`} activeClassName="isActive" exact>
-                      <img alt="example" src={`http://localhost:3000/images/dogs/${dogo.image_path}`} />
-                      </NavLink>
-                    </Panel>
-                  </Collapse> 
+                    return (
+                      <NavLink to= {`/dog/${dogo._id}`} activeClassName="isActive" exact>
+        
+            <Card className="dogo" key={dogo._id}
+            hoverable
+            style={{ width: 240 }}
+            cover={<img alt="example" src={`http://localhost:3000/images/dogs/${dogo.image_path}`} />}
+            >
+             <p>{dogo.name}</p>
+             <p>{dogo.location}</p>
+             
+            
+                    
+          </Card>
+          
+        
+          </NavLink>
+               
+            
+             )
                 })}
 
-                          
-                </div>
-                </div>: ''}
-                <Rate allowHalf disabled value = {userId?.reduce((prev, cur) => prev + cur?.valuations?.reduce((prev, cur) => prev + cur?.points,0),0)/ userId.map((user=>user?.valuations?.reduce((prev, cur) => prev + 1,0)))}/>
-             
-             {totalFixed >= 0?
-              <p> {totalFixed} de 5</p>: ''
+              
 
-}
+              
+                </div>
+                </div>
+                
 
 
 
@@ -121,21 +133,30 @@ const User = ({ userId, cats, dogs}) => {
                           <h3>{valuation.user.name}</h3>
                         <p>{valuation.valu}</p>
                         
-                        <h5>{valuation.date}</h5>
+                        <h5> <Moment format="YYYY/MM/DD">{valuation.date}</Moment></h5>
                      <Rate disabled value = {valuation?.points}/>
                           </div>
                         )
                        })
                      )
                   })}
+{userId?.map(function(user) {
+                    return   <div>
+                  {user?._id !== myuser?._id ?
+                     
+                      <ValuForm/> : <div></div>
+                      }
+                      </div>
+                      }
 
-<ValuForm/>
+                    
+ )}
         </div>
     )
     
 }
 
 
-const mapStateToProps = ({user, cat, dog}) => ({userId:user?.userId, cats:cat.cats?.cats, dogs:dog.dogs?.dogs});
+const mapStateToProps = ({user, cat, dog}) => ({userId:user?.userId, cats:cat.cats?.cats, dogs:dog.dogs?.dogs, myuser:user?.user});
 
 export default connect(mapStateToProps)  (User);

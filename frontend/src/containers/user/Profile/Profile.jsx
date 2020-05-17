@@ -74,7 +74,7 @@ const Put = ({user}) => {
             </form>
     </Card>
 
-   
+
         </div>
     )
 }

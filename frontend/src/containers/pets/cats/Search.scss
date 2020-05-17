@@ -15,7 +15,10 @@
     margin: 1em 0;
   
 }
-
+.notFound{
+   
+    min-height: 75.5vh;
+}
 
 .ant-input-search-enter-button + .ant-input-group-addon, .ant-input-search-enter-button input + .ant-input-group-addon {
     opacity: 0;
