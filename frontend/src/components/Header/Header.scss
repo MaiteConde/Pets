@@ -6,6 +6,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background-color: white;
+    
     img {
         width: 2em;
         height: 2em !important;
@@ -17,7 +19,7 @@
         &:hover {
             color: $Solid;
         }
-
+ 
     }
     span {
         cursor: pointer;
@@ -36,6 +38,19 @@
 .ant-menu-submenu-title {
     color: $Dark !important;
 }
+.logo {
+    justify-self: start;
+    width: 60%;
+    display: flex;
+    h2 {
+        margin: 0.3em;
+    }
+    img {
+        width: 15em;
+        height: 7em !important;
+    }
+    
+}
 
 @media (max-width: 600px) {
     .header{
@@ -50,6 +65,9 @@
         .userZone{
             display: flex;
             padding: 0;
+        }
+        .logo{
+            display: none;
         }
     }
 }

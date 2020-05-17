@@ -63,9 +63,9 @@ const Put = ({user}) => {
 </div>
 
 
-             <h4>Name:</h4> <TextField type="text" label={user?.name} name="name"  />
-             <h4>Surname:</h4> <TextField type="text" label={user?.surname}  name="surname"  />
-             <h4>Info:</h4> <TextField type="text" label={user?.userInfo}  name="userInfo" />
+             <TextField type="text" label={user?.name} name="name"  />
+              <TextField type="text" label={user?.surname}  name="surname"  />
+              <TextField type="text" label={user?.userInfo}  name="userInfo" />
             
                
                 <Button type="submit" class="bubbly-button">

@@ -45,7 +45,7 @@ const Post = ({dog}) => {
             <form onSubmit={handle}>
                 <h2>Cat</h2>
                 <TextField type="text" required label="name" name="name" placeholder="cats name" />
-                <TextField type="text" required label="sex" name="sex" placeholder="cats sex" />
+                {/* <TextField type="text" required label="sex" name="sex" placeholder="cats sex" /> */}
                 <TextField type="text" required label="breed" name="breed" placeholder="cats breed" />
                 <TextField type="text" required label="age" name="age" placeholder="cats age" />
                 <TextField type="text" required label="history" name="history" placeholder="cats history" />

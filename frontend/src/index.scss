@@ -157,14 +157,6 @@ $offset: $lat - $thickness;
 
 
 
-/**
- * Attempt to center the whole thing!
- */
-
-// html,
-// body {
-//   height: 100%;
-// }
 
 .loader {
   position: absolute;
@@ -177,12 +169,7 @@ $button-bg: $fuschia;
 $button-text-color: #fff;
 $baby-blue: #f8faff;
 
-// body{
-//   font-size: 16px;
-//   font-family: 'Helvetica', 'Arial', sans-serif;
-//   text-align: center;
-//   background-color: $baby-blue;
-// }
+
 .bubbly-button{
   font-family: 'Helvetica', 'Arial', sans-serif;
   display: inline-block;
@@ -295,7 +282,10 @@ $baby-blue: #f8faff;
 @media (max-width: 700) {
   html, body {
     // min-width: 40vh;
-   
+   height: 100% !important;
     width: 100% !important;
+  }
+  .footer {
+    display: none !important;
   }
 }

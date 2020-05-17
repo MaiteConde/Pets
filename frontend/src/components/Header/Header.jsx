@@ -6,13 +6,13 @@ import { logout } from '../../redux/actions/users';
 import 'antd/dist/antd.css';
 import { Menu } from 'antd';
 // import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
-
+import logo from '../Header/logo.png'
 const { SubMenu } = Menu;
 
 const Header = props => {
 
-    
     return <header className="header" id= "header">
+    <div className="logo"><img src={logo} alt=""/></div>
  
  <NavLink to='/' activeClassName="isActive" exact><img src="https://image.flaticon.com/icons/png/512/69/69524.png" alt=""/></NavLink>
  

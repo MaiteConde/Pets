@@ -37,6 +37,8 @@ const Dogs = props => {
             cover={<img alt="example" src={`http://localhost:3000/images/dogs/${dogo.image_path}`} />}
             >
              <p>{dogo.name}</p>
+             <p>{dogo.location}</p>
+             
             
                     
           </Card>

@@ -4,13 +4,22 @@
     display: flex;
     justify-content: center;
     height: 3em;
-    min-height: 90.5vh;
+    min-height: 75.5vh;
+    .ant-card-body {
+        display: flex;
+        justify-content: center;
+    }
 
 }
 form {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     // align-items: center;
+    // padding: 0;
+    // .MuiFormControl-root {
+    //     padding: 0;
+    //     width: 100%;
+    // }
 
     img {
         width: 10em !important;
@@ -32,9 +41,7 @@ Button {
     margin: 2.5em !important;
 }
 
-// .MuiFormControl-root {
-//     width: 100%;
-// }
+
 
 h4{
 align-self: flex-start;

@@ -7,10 +7,11 @@ import { postDog, editDog } from '../../../redux/actions/dogs';
 import './PostDog.scss' 
 import Switches from '../Switch';
 import { connect } from 'react-redux';
+import SimpleSelect from '../Select';
 
 
 
-const Put = props => {
+const Put = ({adopted, dog}) => {
     let location = useLocation();
     const id = location.pathname.replace('/editDog/','')
     console.log(id)
@@ -18,41 +19,43 @@ const Put = props => {
         event.preventDefault();
         const formData = new FormData();
         if (event.target.image.files[0]) formData.set('image', event.target.image.files[0]);
-        if (event.target.name.value[0]) formData.set('name', event.target.name.value)
-        if (event.target.sex.value[0]) formData.set('sex', event.target.sex.value)
-        if (event.target.breed.value[0]) formData.set('breed', event.target.breed.value)
-        if (event.target.age.value[0]) formData.set('age', event.target.age.value)
-        if (event.target.history.value[0]) formData.set('history', event.target.history.value)
-        if (event.target.location.value[0]) formData.set('location', event.target.location.value)
-        formData.set('adopted', props.adopted)
-        
+        if (event.target.name.value) formData.set('name', event.target.name.value)
+        if (dog) formData.set('sex', dog)
+        if (event.target.breed.value) formData.set('breed', event.target.breed.value)
+        if (event.target.age.value) formData.set('age', event.target.age.value)
+        if (event.target.history.value) formData.set('history', event.target.history.value)
+        if (event.target.location.value) formData.set('location', event.target.location.value)
+        if (adopted !== undefined) formData.set('adopted', adopted)
+        console.log(adopted)
         editDog(formData, id)
         .then(dog => {
             console.log(dog)
             notification.success({message:'Edited'})
-            setTimeout(() => {
-                localStorage.removeItem('adopted')
-                props.history.push('/profile')
-            }, 2000);
+            // setTimeout(() => {
+            //     localStorage.removeItem('adopted')
+            //     history.push('/profile')
+            // }, 2000);
         })
         .catch((error)=>{
-           console.error(error)
+            console.error(error)
         })
     }
     return (
         <div className="postDogContainer">
+        
             <form onSubmit={handle}>
-                <h2>Edit</h2>
+                <h2>Edit dog</h2>
                 <TextField type="text" label="name" name="name" placeholder="dogs name" />
-                <TextField type="text"  label="sex" name="sex" placeholder="cats sex" />
                 <TextField type="text" label="breed" name="breed" placeholder="dogs breed" />
                 <TextField type="text" label="age" name="age" placeholder="dogs age" />
                 <TextField type="text" label="history" name="history" placeholder="dogs history" />
-                <TextField type="text"  label="location" name="location" placeholder="catslocation" />
-               <Switches />
-                <input type="file"  name="image" id="file-input"/>
-
-                <Button type="submit" variant="contained" color="primary">
+                <TextField type="text" label="location" name="location" placeholder="catslocation" />
+                <SimpleSelect />
+               
+               Adopted: <Switches />
+               <label for="file" class="bubbly-button"><span>Select Image</span></label>
+                <input type="file"  name="image" id="file"/> 
+                <Button type="submit" class="bubbly-button">
                     Send
                 </Button>
             </form>
@@ -60,5 +63,5 @@ const Put = props => {
     )
 }
 
-const mapStateToProps = ({cat}) =>({adopted:cat?.catadopted});
+const mapStateToProps = ({cat, dog}) =>({adopted:cat?.catadopted, dog:dog.sex});
 export default connect(mapStateToProps)  (Put);

@@ -19,7 +19,7 @@ const InSearchDog = () => {
         <div className="containersearchDog">
         <div className="searchDog">
          <Search  onKeyUp={handleChange} className="busca"
-      placeholder="Find a dog near you"
+      placeholder="Find a dog in your location"
       enterButton="Search"
       size="large"
       onSearch={value => console.log(value)}

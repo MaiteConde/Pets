@@ -11,23 +11,23 @@
     justify-content: center;
     align-items: center;
     min-height: 70vh;
-    form{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        min-height: 40vh;
-        align-items: center;
-        input{
+    // form{
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-around;
+    //     min-height: 40vh;
+    //     align-items: center;
+    //     input{
             
-        min-width: 35vw;
-        }
-        button{
-            margin-top: 3em;
-            background-color: $Dark;
-            width: 50%;
-        }
+    //     min-width: 35vw;
+    //     }
+    //     button{
+    //         margin-top: 3em;
+    //         background-color: $Dark;
+    //         width: 50%;
+    //     }
       
-    }
+    // }
 }
 
 [type="file"]+label {

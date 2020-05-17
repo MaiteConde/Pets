@@ -3,8 +3,8 @@
 .message {
  display: flex;
  justify-content: center;
- 
- 
+
+
     .messagerec {
         display: flex;
         flex-direction: column;
@@ -12,43 +12,42 @@
         color: black;
         div {
             padding: 0.5em;
-           
+
         }
     }
     .ant-card-body {
         background-color: $gray;
         height: 100%;
     }
-  
 
-    
-    
-    
 }
 .name{
     display: flex;
     align-items: center;
-    justify-self: start;
+    justify-content: flex-start ;
+    justify-self: start ;
     align-self: flex-start;
     h3 {
         margin: 1em;
     }
+   
 }
 .date{
- 
+
     align-self: flex-end;
-        
+
 }
 .messa{
    margin: 0 7.5em;
     align-self: flex-start;
-        
+
 }
 .imagepro{
     justify-self: start;
     align-self: flex-start;
     height: 6em !important;
     width: 6em !important;
+    margin: 0;
     border-radius: 50%;
 }
 .ant-modal-confirm .ant-modal-confirm-btns {
@@ -62,6 +61,6 @@
 }
 
 form {
-       
+
     width: 87% ;
 }

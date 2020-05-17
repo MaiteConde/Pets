@@ -52,6 +52,7 @@ padding: 1em;
 .contact {
 display: flex;
 align-items: center;
+margin: auto;
 }
 
 .bubbly-button {
@@ -100,9 +101,11 @@ a {
   }
   .catData{
     display: flex;
-    width: 90% !important;
+    width: 95% !important;
+   
     .history{
       width: 100%;
+
     }
   }
   .infoC{

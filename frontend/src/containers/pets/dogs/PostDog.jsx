@@ -7,7 +7,7 @@ import './PostDog.scss'
 import Select from '@material-ui/core/Select';
 import SimpleSelect from '../Select';
 import { Citys } from '../Location';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
 
 import { connect } from 'react-redux';
 

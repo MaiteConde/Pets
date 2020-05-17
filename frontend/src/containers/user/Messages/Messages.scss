@@ -59,16 +59,22 @@
 }
 
 @media (max-width: 600px) {
+    .messages{
+        display: flex;
+        flex-direction: column;
+    }
     .littlemenu {
         padding: 0 ;
     }
     .ant-card-body {
-        // width: 15em !important;
+        
         .daate {
             display: flex;
             display: none;
         }
   
     }
-
+.divcard {
+width: 100%;
+}
 }
