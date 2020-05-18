@@ -34,7 +34,7 @@ const ValuForm = (valuation) => {
           <Rate  
           onChange={(index) => localStorage.setItem('index', `${index}`)}
          />
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" class="bubbly-button">
               Send
           </Button>
       </form>

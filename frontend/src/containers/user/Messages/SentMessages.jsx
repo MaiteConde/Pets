@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import Moment from 'react-moment';
+import 'moment-timezone';
 import { Button } from '@material-ui/core';
 import {editProfile, getInfo, getMEssages} from '../../../redux/actions/users'
 import { Card } from 'antd';
@@ -45,7 +46,7 @@ const SendedMessages = ({message}) => {
       <div className="cardcontent">
          <div>To: {enviado?.recipient?.name}</div>
        <div>{enviado?.subject}</div>
-         <div className="daate">{enviado?.createdAt}</div>
+         <div className="daate"> <Moment format="YYYY/MM/DD">{enviado?.createdAt}</Moment></div>
          </div>
     </NavLink>
     

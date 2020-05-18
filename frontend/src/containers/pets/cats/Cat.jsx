@@ -91,7 +91,7 @@ const Cat = ({ cat, user}) => {
 
                     {user?._id ? 
                 <MessageCat/>: <h3> You have to be logged in to contact</h3>}
-                    </div>: <div><img src="https://image.flaticon.com/icons/png/512/98/98755.png" alt=""/><h3>You are the author of this publication</h3> </div> }
+                    </div>: <div><img src="https://image.flaticon.com/icons/png/512/98/98755.png" alt=""/> <h3>You are the author of this publication</h3> </div> }
    
                 </div>: <div className="adopted">
                     <h1>This cat has already been adopted!</h1>

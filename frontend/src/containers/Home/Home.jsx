@@ -23,13 +23,13 @@ const Home = () => {
     <div className="contents">
         <NavLink to='/dogs' activeClassName="isActive" exact>
 <img src="https://image.flaticon.com/icons/png/512/91/91533.png" alt=""/>
-             <span>find a Dog</span> 
+             <span>Find a Dog</span> 
         
         </NavLink>
 
         <NavLink to='/cats' activeClassName="isActive" exact> 
         <img src="https://image.flaticon.com/icons/png/512/24/24674.png" alt=""/>
-        <span>find a Cat</span> </NavLink>
+        <span>Find a Cat</span> </NavLink>
     </div>
     </div>
 <div className="petInfo">
